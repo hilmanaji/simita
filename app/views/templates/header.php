@@ -6,5 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $data['judul']; ?></title>
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/main.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/style.css">
 </head>
 <body>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 * {
-    box-sizing: border-box;    
+    box-sizing: border-box;
+    margin: 0px 0px 0px 0px;
 }
 
 body {
@@ -10,7 +11,11 @@ body {
 
 #sideMenu {
     background: #303D43;
-    max-width: 280px;
+    width: 280px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    box-shadow: 3px 0px 5px grey;
 }
 
 #sideMenu a {
@@ -18,11 +23,99 @@ body {
     color: #9e9595;
     text-decoration:none;
     padding: 15px 30px;
+    transition: all 0.3s ease-in-out;
 }
+
+#sideMenu a:hover {
+    background: #111011;
+    border-left: 5px solid #e90b30;
+    padding: 15px 30px 15px 25px;
+    color: #F4F6F9;
+}
+
 #sideMenu a.active {
-    background: #303D43;
+    background: #111011;
+    border-left: 5px solid #e90b30;
+    padding: 15px 30px 15px 25px;
+    color: #F4F6F9;
 }
 
 #sideMenu nav {
+    padding-top: 100px;
+}
 
+#content-area {
+    margin-left: 280px;
+    padding: 20px;  
+}
+
+header {
+    margin-left: 280px;
+    padding: 18px;
+    background: #fff;
+    box-shadow: 0px 3px 5px grey;
+}
+
+input[type="text"] {
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    color: #302d2d;
+    padding: 10px;
+    font-weight: 100;
+}
+
+
+div.search-area {
+    display: inline-block;
+}
+
+div.user-area {
+    display: inline-block;
+    float:  right;
+    padding-top: 8px;
+}
+
+div.user-area a{
+    text-decoration: none;
+    color: #dd1515;
+    font-size: 20px;
+}
+
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+}
+
+.dropdown-btn {
+    display: block;
+    color: #9e9595;
+    text-decoration:none;
+    padding: 15px 30px;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.dropdown-btn:hover {
+    background: #111011;
+    border-left: 5px solid #e90b30;
+    padding: 15px 30px 15px 25px;
+    color: #F4F6F9;
+    display: block;
+    font-size: 16px;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+i {
+    padding-left: 120px;
 }

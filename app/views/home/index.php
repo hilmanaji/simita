@@ -1,2 +1,2 @@
 
-    <h1>Ini tampilan Home</h1>
+    <h1>Selamat Datang <?= $data['nama']; ?></h1>
