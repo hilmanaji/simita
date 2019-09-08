@@ -11,7 +11,7 @@
             <i><img src="<?= BASEURL;?>/img/caret.png" alt="" width="20" heigth="20"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Regional</a>
+            <a href="<?= BASEURL;?>/regional/index">Regional</a>
             <a href="#">Witel</a>
             <a href="#">Datel</a>
             <a href="#">STO</a>

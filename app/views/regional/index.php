@@ -1,4 +1,10 @@
-
-    <div class="container">
-        <p class="textAbu">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum deleniti eaque dolore numquam repellendus magnam sint distinctio nihil consequuntur laborum molestias amet vero doloremque suscipit iure veniam doloribus, laudantium asperiores.</p>
-    </div>
+<div class="container">  
+    <h3>Data Regional</h3>
+    <?php foreach ( $data['data_regional'] as $reg ) : ?>
+        <ul>
+            <li><?= $reg['regional'] ?></li>
+            <li><a href="<?= BASEURL; ?>/regional/detail/<?= $reg['id_regional'] ?>">LIHAT</a></li>
+            <br>
+        </ul>
+    <?php endforeach; ?>
+</div>
