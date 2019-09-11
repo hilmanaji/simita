@@ -2,7 +2,8 @@
 
 class Regional extends Controller {
     public function index (){
-		$data['judul'] = 'Daftar Regional';
+		$data['judul'] = 'Teritori';
+		$data['sub_judul'] = 'Daftar Regional';
 		$data['data_regional'] = $this->model('DataHandle')->getAll($table = 'tbl_regional');
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar');
@@ -10,13 +11,46 @@ class Regional extends Controller {
 		$this->view('templates/footer');
 	}
 
-	public function detail ($id_regional){
+	public function tampilData ($id){
 		$data['judul'] = 'Daftar Regional';
-		$data['data_regional'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_regional', $id_regional);
+		$data['data_regional'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_regional', $id);
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar');
 		$this->view('regional/v_detail', $data);
 		$this->view('templates/footer');
+	}
+	
+	public function tambahData() {
+		$data['judul'] = 'Teritori';
+		$data['sub_judul'] = 'Tambah Regional';
+		$this->view('templates/header', $data);
+		$this->view('templates/sidebar');
+		$this->view('regional/v_tambah_regional',$data);
+		$this->view('templates/footer');
+	}
+
+	public function tambah() {
+		if( $this->model('DataHandle')->tambahDataRegional($_POST) > 0) {
+			Flasher::setFlash('Berhasil','ditambahkan','selektorcss');
+			header('Location: ' . BASEURL . '/regional/index');
+			exit;
+		} else {
+			Flasher::setFlash('gagal','ditambahkan','selektorcss');
+			header('Location: ' . BASEURL . '/regional/index');
+			exit;
+		}
+	}
+
+	public function hapus($id) {
+		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_regional', $id_table = 'id_regional') > 0) {
+			Flasher::setFlash('Berhasil','dihapus','selektorcss');
+			header('Location: ' . BASEURL . '/regional/index');
+			exit;
+		} else {
+			Flasher::setFlash('Gagal','ditambahkan','selektorcss');
+			header('Location: ' . BASEURL . '/regional/index');
+			exit;
+		}
 	}
 	
 

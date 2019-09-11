@@ -1,7 +1,6 @@
 <?php
 
 class DataHandle {
-    private $table_regional = 'tbl_regional';
     private $db;
 
     public function __construct() {
@@ -13,9 +12,35 @@ class DataHandle {
         return $this->db->resultSet();
     }
 
-    public function getAllWhere($table, $id_regional) {
-        $this->db->query('SELECT * FROM ' . $table . ' WHERE id_regional=:id_regional');
-        $this->db->bind('id_regional', $id_regional);
+    public function getAllWhere($table, $id) {
+        $this->db->query('SELECT * FROM ' . $table . ' WHERE ' . $id . '= :id');
+        $this->db->bind('id', $id);
         return $this->db->single();
+    }
+
+    public function tambahDataRegional($data){
+        $query = "INSERT INTO tbl_regional VALUES ('', :regional)";
+
+        $this->db->query($query);
+        $this->db->bind('regional', $data['regional']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function hapusData($id, $table, $id_table){
+        $query = "DELETE FROM $table  WHERE $id_table = :id";
+
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function ubahDataRegional () {
+        
     }
 }

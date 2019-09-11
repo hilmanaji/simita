@@ -14,7 +14,7 @@
             <a href="<?= BASEURL;?>/regional/index">Regional</a>
             <a href="#">Witel</a>
             <a href="#">Datel</a>
-            <a href="#">STO</a>
+            <a href="<?= BASEURL;?>/sto/index">STO</a>
         </div>
 
     </nav>

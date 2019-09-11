@@ -10,6 +10,7 @@ body {
 }
 
 #sideMenu {
+    position: fixed;
     background: #303D43;
     width: 280px;
     position: absolute;
@@ -46,7 +47,7 @@ body {
 
 #content-area {
     margin-left: 280px;
-    padding: 20px;  
+    padding: 20px;
 }
 
 header {
@@ -55,6 +56,19 @@ header {
     background: #fff;
     box-shadow: 0px 3px 5px grey;
 }
+
+footer {
+    margin-left: 280px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: #2e2c2c;
+    padding: 18px 10px 18px 50px;
+}
+
+
 
 input[type="text"] {
     background: transparent;

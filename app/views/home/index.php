@@ -1,2 +1,2 @@
 
-    <h1>Selamat Datang <?= $data['nama']; ?></h1>
+    <h1>Selamat Datang </h1>
