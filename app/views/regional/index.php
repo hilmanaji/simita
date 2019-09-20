@@ -17,7 +17,7 @@
             <input type="submit" value="Cari" class="tombol">
         </form>    
     </div>
-
+    <!-- ini bagian judul -->
     <div class="table-wrapper">
         <table class="fl-table">
             <thead>
@@ -35,7 +35,7 @@
                 <td><?= $no++; ?></td>
                 <td><?= $reg['regional'] ?></td>
                 <td>
-                    <a href="#"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
+                    <a href="<?= BASEURL; ?>/regional/getUbah/<?= $reg['id_regional'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
                     <a href="<?= BASEURL; ?>/regional/hapus/<?= $reg['id_regional'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                 </td>
             </tr>
@@ -44,5 +44,4 @@
         </table>
     </div>
 </div>
-
 

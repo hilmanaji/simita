@@ -12,7 +12,13 @@ class Flasher {
 
     public static function flash() {
         if ( isset($_SESSION['flash']) ) {
-            echo'<p>' . $_SESSION['flash']['pesan'] . '</p><span class="close">&times;</span>';
+            echo'<p>' . $_SESSION['flash']['pesan'] . '
+            <div class="notifikasi">';
+
+            echo '
+            . '.$_SESSION['flash']['aksi'] .'
+            </div>
+            ';
         }
 
         unset($_SESSION['flash']);
