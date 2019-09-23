@@ -22,11 +22,11 @@ class Regional extends Controller {
 
 	public function tambah() {
 		if( $this->model('DataHandle')->tambahDataRegional($_POST) > 0) {
-			Flasher::setFlash('Berhasil','ditambahkan','selektorcss');
+			Flasher::setFlash('Berhasil','ditambahkan','CssTambah');
 			header('Location: ' . BASEURL . '/regional/index');
 			exit;
 		} else {
-			Flasher::setFlash('gagal','ditambahkan','selektorcss');
+			Flasher::setFlash('gagal','ditambahkan','CssTambah');
 			header('Location: ' . BASEURL . '/regional/index');
 			exit;
 		}
@@ -34,11 +34,11 @@ class Regional extends Controller {
 
 	public function hapus($id) {
 		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_regional', $id_table = 'id_regional') > 0) {
-			Flasher::setFlash('Berhasil','dihapus','selektorcss');
+			Flasher::setFlash('Berhasil','dihapus','CssHapus');
 			header('Location: ' . BASEURL . '/regional/index');
 			exit;
 		} else {
-			Flasher::setFlash('Gagal','ditambahkan','selektorcss');
+			Flasher::setFlash('Gagal','ditambahkan','CssHapus');
 			header('Location: ' . BASEURL . '/regional/index');
 			exit;
 		}
@@ -57,11 +57,11 @@ class Regional extends Controller {
 	
 	public function ubahData() {
 		if( $this->model('DataHandle')->ubahDataRegional ($_POST) > 0) {
-			Flasher::setFlash('Berhasil','ditambahkan','selektorcss');
+			Flasher::setFlash('Berhasil','diubah','CssUpdate');
 			header('Location: ' . BASEURL . '/regional/index');
 			exit;
 		} else {
-			Flasher::setFlash('gagal','ditambahkan','selektorcss');
+			Flasher::setFlash('gagal','diubah','CssUpdate');
 			header('Location: ' . BASEURL . '/regional/index');
 			exit;
 		}

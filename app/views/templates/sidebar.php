@@ -1,4 +1,5 @@
 <section id="sideMenu">
+    <button class="closebtn" onclick="closeNav()">X</button>
     <div class="logo-app">
         <img src="<?= BASEURL;?>/img/logo-ta.png" alt="" width="150" heigth="150">
     </div>
@@ -30,8 +31,7 @@
 </section>
 <header id="main">
     <div class="search-area">
-        <div>
-            <button class="closebtn" onclick="closeNav()">X</button>  
+        <div>  
             <button class="openbtn" onclick="openNav()">☰</button>  
         </div>
     </div>

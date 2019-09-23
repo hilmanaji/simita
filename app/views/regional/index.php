@@ -6,14 +6,16 @@
 </div>
 <div class="data-table">
     <div class="navigasi">
-        <div class="notifikasi">
-            <?php Flasher::flash(); ?>
-        </div>
+        <?php Flasher::flash(); ?>
         <form action="">
             <a href="<?= BASEURL; ?>/regional/tambahData">Tambah Data</a>
         
-            <span>Cari :</span>
-            <input type="text" value="" name="" placeholder="Cari Data"> 
+            <label class="kolom a-kolom a-kolom_a3">
+                <input class="kolom__input a-kolom__input" placeholder="e.g. melnik909@ya.ru" required>
+                <span class="a-kolom__label-wrap">
+                <span class="a-kolom__label">Cari</span>
+                </span>
+            </label> 
             <input type="submit" value="Cari" class="tombol">
         </form>    
     </div>

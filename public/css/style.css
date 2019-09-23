@@ -187,15 +187,6 @@ td a:hover {
     color: #FFFFFF;
 }
 
-.navigasi input[type="text"] {
-    background: transparent;
-    border: none;
-    font-size: 1rem;
-    color: #302d2d;
-    padding: 10px;
-    font-weight: 100;
-}
-
 .tombol {
     display: inline-block;
     background-color: #db2727;
@@ -229,12 +220,32 @@ td a:hover {
     cursor: pointer;
   }
 
-div .notifikasi {
-    background-color: #d3c9c9;
+div .CssTambah {
+    width: 30%;
+    background-color: #16e48e;
     color: #FFFFFF;
     padding: 10px 15px 10px 10px;
     border-radius: 4px;
     margin-left: 10px;
     margin-top: 20px;
-    margin-right: 20px;
+}
+
+div .CssHapus {
+    width: 30%;
+    background-color: #e03e3e;
+    color: #FFFFFF;
+    padding: 10px 15px 10px 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+div .CssUpdate {
+    width: 30%;
+    background-color: #16e48e;
+    color: #FFFFFF;
+    padding: 10px 15px 10px 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-top: 20px;
 }
