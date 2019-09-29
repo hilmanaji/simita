@@ -21,7 +21,7 @@ class Datel extends Controller {
 	}
 
 	public function tambah() {
-		if( $this->model('DataHandle')->tambahDatadatel($_POST) > 0) {
+		if( $this->model('DataHandle')->tambahDataDatel($_POST) > 0) {
 			Flasher::setFlash('Berhasil','ditambahkan','CssTambah');
 			header('Location: ' . BASEURL . '/datel/index');
 			exit;
@@ -56,7 +56,7 @@ class Datel extends Controller {
 
 	
 	public function ubahData() {
-		if( $this->model('DataHandle')->ubahDatadatel ($_POST) > 0) {
+		if( $this->model('DataHandle')->ubahDataDatel ($_POST) > 0) {
 			Flasher::setFlash('Berhasil','diubah','CssUpdate');
 			header('Location: ' . BASEURL . '/datel/index');
 			exit;

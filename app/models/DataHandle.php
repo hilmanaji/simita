@@ -69,7 +69,7 @@ class DataHandle {
         return $this->db->rowCount();
     }
 
-    public function ubahDatawitel($data) {
+    public function ubahDataWitel($data) {
         $query = "UPDATE tbl_witell SET id_regional = :id_regional, witel = :witel WHERE id_witel = :id_witel";
         
         $this->db->query($query);
@@ -81,5 +81,69 @@ class DataHandle {
 
         return $this->db->rowCount(); 
     }
+
+    // Spesifik Query Datel
+    public function tambahDataDatel() {
+
+    }
+
+    public function ubahDataDatel() {
+
+    }
+
+    // Spesifik Query STO
+    public function tambahDataSto() {
+
+    }
+
+    public function ubahDataSto() {
+
+    }
+
+    // Spesifik Query Kontrak
+    public function tambahDataKontrak() {
+
+    }
+
+    public function ubahDataKontrak() {
+
+    }
+
+    // Spesifik Query PurchaseOrder
+    public function tambahDataPo($data) {
+        $query = "INSERT INTO tbl_po VALUES ('', :no_po, :jenis_po, :tgl_mulai, :tgl_selesai, :nilai_material, :nilai_jasa, :total, :status_po)";
+
+        $this->db->query($query);
+        $this->db->bind('no_po', $data['no_po']);
+        $this->db->bind('jenis_po', $data['jenis_po']);
+        $this->db->bind('tgl_mulai', $data['tgl_mulai']);
+        $this->db->bind('tgl_selesai', $data['tgl_selesai']);
+        $this->db->bind('nilai_material', $data['nilai_material']);
+        $this->db->bind('nilai_jasa', $data['nilai_jasa']);
+        $this->db->bind('total', $data['total']);
+        $this->db->bind('status_po', $data['status_po']);
+
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function ubahDataPo() {
+
+    }
+
+    // Spesifik Query Project
+    public function tambahDataProject($data) {
+        
+    }
+
+    public function ubahDataProject() {
+
+    }
+
+
+
+    
 
 }

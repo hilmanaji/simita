@@ -22,7 +22,7 @@ class Sto extends Controller {
 	}
 
 	public function tambah() {
-		if( $this->model('DataHandle')->tambahDatasto($_POST) > 0) {
+		if( $this->model('DataHandle')->tambahDataSto($_POST) > 0) {
 			Flasher::setFlash('Berhasil','ditambahkan','CssTambah');
 			header('Location: ' . BASEURL . '/sto/index');
 			exit;
@@ -57,7 +57,7 @@ class Sto extends Controller {
 
 	
 	public function ubahData() {
-		if( $this->model('DataHandle')->ubahDatasto ($_POST) > 0) {
+		if( $this->model('DataHandle')->ubahDataSto ($_POST) > 0) {
 			Flasher::setFlash('Berhasil','diubah','CssUpdate');
 			header('Location: ' . BASEURL . '/sto/index');
 			exit;
