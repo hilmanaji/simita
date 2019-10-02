@@ -5,7 +5,12 @@ class Login extends Controller {
 		$this->view('login/index');
 	}
 
-	public function data_get(){
-
+	public function cekLogin () {
+		if( $this->model('DataHandle')->cekDataLogin($_POST) == 0) {
+			$_SESSION["username"] = $data["username"];  
+			header('Location: ' . BASEURL . '/dashboard/index'); 
+		} else {
+			header('Location: ' . BASEURL . '/login/index');
+		}
 	}
 }

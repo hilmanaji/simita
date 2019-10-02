@@ -171,11 +171,11 @@
     </style>
 </head>
 <body>
-<form>
+<form method="post" action="<?= BASEURL; ?>/login/cekLogin/">
   <h1><span>Login</span> SimiTa</h1>
-  <input placeholder="Username" type="text"/>
-  <input placeholder="Password" type="password"/>
-  <button class="btn">Log in</button>
+  <input placeholder="Username" type="text" name="username"/>
+  <input placeholder="Password" type="password" name="pass"/>
+  <button class="btn" type="submit">Log in</button>
   <div class="social">
   <button class="tw btn">Twitter</button>
   <button class="fb btn">Facebook</button>

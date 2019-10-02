@@ -44,12 +44,12 @@
             <?php foreach ( $data['data_project'] as $project ) : ?>
             <tr>
                 <td><?= $no++; ?></td>
-                <td><?= $project['no_project'] ?></td>
-                <td><?= $project['jenis_project'] ?></td>
+                <td><?= $project['id_project'] ?></td>
+                <td><?= $project['no_po'] ?></td>
                 <td><?= $project['id_regional'] ?></td>
-                <td><?= $project['id_regional'] ?></td>
-                <td><?= $project['id_regional'] ?></td>
-                <td><?= $project['id_regional'] ?></td>
+                <td><?= $project['id_witel'] ?></td>
+                <td><?= $project['id_datel'] ?></td>
+                <td><?= $project['id_sto'] ?></td>
                 <td><?= $project['nama_lokasi'] ?></td>
                 <td><?= $project['jumlah_odp'] ?></td>
                 <td><?= $project['jumlah_port'] ?></td>
@@ -57,10 +57,10 @@
                 <td><?= $project['nilai_material'] ?></td>
                 <td><?= $project['nilai_jasa'] ?></td>
                 <td><?= $project['total'] ?></td>
-                <td><?= $project['status_po'] ?></td>
+                <td><?= $project['status_progress'] ?></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/po/getUbah/<?= $po['no_po'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
-                    <a href="<?= BASEURL; ?>/po/hapus/<?= $po['id_po'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                    <a href="<?= BASEURL; ?>/po/getUbah/<?= $po['id_project'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
+                    <a href="<?= BASEURL; ?>/po/hapus/<?= $po['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                 </td>
             </tr>
             <?php endforeach; ?>

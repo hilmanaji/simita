@@ -7,14 +7,16 @@
 </div>
 <div class="data-table">
     <div class="navigasi">
-        <form action="<?= BASEURL; ?>/regional/ubahData" method="post">
-        Regional:<br>
-        <input type="text" name="id_regional" value="<?= $data['data_regional']['id_regional'] ?>">
-        <input type="text" name="regional" value="<?= $data['data_regional']['regional'] ?>">
-        <br>
-        <br><br>
-        <input class="tombol" type="submit" value="Submit">
-        </form>   
+        <div class="gaya-form">
+            <form action="<?= BASEURL; ?>/regional/ubahData/" method="post">
+                <input type="hidden" name="id_regional" value="<?= $data['data_regional']['id_regional'] ?>">
+                <label for="regional">
+                    <span>REGIONAL<span class="required">*</span></span>
+                    <input type="text" class="input-text" name="regional" value="<?= $data['data_regional']['regional'] ?>" required/>
+                </label>
+                <label><span> </span><input type="submit" value="SIMPAN" /></label>
+            </form>
+        </div>
     </div>
 </div>
 

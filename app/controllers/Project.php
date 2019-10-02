@@ -14,6 +14,11 @@ class Project extends Controller {
 	public function tambahData() {
 		$data['judul'] = 'Project';
 		$data['sub_judul'] = 'Tambah Project';
+		$data['data_po'] = $this->model('DataHandle')->getAll($table = 'tbl_po');
+		$data['data_regional'] = $this->model('DataHandle')->getAll($table = 'tbl_regional');
+		$data['data_witel'] = $this->model('DataHandle')->getAll($table = 'tbl_witel');
+		$data['data_datel'] = $this->model('DataHandle')->getAll($table = 'tbl_datel');
+		$data['data_sto'] = $this->model('DataHandle')->getAll($table = 'tbl_sto');
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar');
 		$this->view('project/v_tambah_project',$data);

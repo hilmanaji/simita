@@ -6,7 +6,7 @@ class Dashboard extends Controller {
 		
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar');
-		$this->view('home/index', $data);
+		$this->view('dashboard/index', $data);
 		$this->view('templates/footer');
 	}
 }

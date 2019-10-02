@@ -14,6 +14,7 @@ class Witel extends Controller {
 	public function tambahData() {
 		$data['judul'] = 'Teritori';
 		$data['sub_judul'] = 'Tambah Witel';
+		$data['data_regional'] = $this->model('DataHandle')->getAll($table = 'tbl_regional');
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar');
 		$this->view('witel/v_tambah_witel',$data);
@@ -44,10 +45,12 @@ class Witel extends Controller {
 		}
 	}
  
-	public function getUbah($id){
+	public function getUbah($id, $id_reg){
 		$data['judul'] = 'Ubah Data Witel';
 		$data['sub_judul'] = 'Ubah Data Witel';
 		$data['data_witel'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_witel',$id_table = 'id_witel', $id);
+		$data['data_regional'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_regional',$id_table = 'id_regional', $id_reg);
+		$data['data_reg'] = $this->model('DataHandle')->getAll($table = 'tbl_regional');
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar');
 		$this->view('witel/v_ubah_witel', $data);

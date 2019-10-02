@@ -6,7 +6,7 @@
 
 .gaya-form{
   display: block;
-	max-width: 50%;
+	max-width: 80%;
 	padding: 20px 12px 10px 20px;
 	font: 13px Arial, Helvetica, sans-serif;
 }
@@ -16,7 +16,7 @@
 	margin: 0px 0px 15px 0px;
 }
 .gaya-form label > span{
-	width: 100px;
+	width: 150px;
 	float: left;
 	padding-top: 8px;
 	padding-right: 5px;

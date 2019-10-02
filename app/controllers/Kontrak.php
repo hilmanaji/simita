@@ -26,14 +26,14 @@ class Kontrak extends Controller {
 			header('Location: ' . BASEURL . '/kontrak/index');
 			exit;
 		} else {
-			Flasher::setFlash('gagal','ditambahkan','CssTambah');
+			Flasher::setFlash('gagal','ditambahkan','CssHapus');
 			header('Location: ' . BASEURL . '/kontrak/index');
 			exit;
 		}
 	}
 
 	public function hapus($id) {
-		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_kontrak', $id_table = 'id_kontrak') > 0) {
+		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_no_kontrak', $id_table = 'id_kontrak') > 0) {
 			Flasher::setFlash('Berhasil','dihapus','CssHapus');
 			header('Location: ' . BASEURL . '/kontrak/index');
 			exit;
@@ -47,7 +47,7 @@ class Kontrak extends Controller {
 	public function getUbah($id){
 		$data['judul'] = 'Ubah Data kontrak';
 		$data['sub_judul'] = 'Ubah Data kontrak';
-		$data['data_kontrak'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_kontrak',$id_table = 'id_kontrak', $id);
+		$data['data_kontrak'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_no_kontrak',$id_table = 'id_kontrak', $id);
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar');
 		$this->view('kontrak/v_ubah_kontrak', $data);
@@ -61,7 +61,7 @@ class Kontrak extends Controller {
 			header('Location: ' . BASEURL . '/kontrak/index');
 			exit;
 		} else {
-			Flasher::setFlash('gagal','diubah','CssUpdate');
+			Flasher::setFlash('gagal','diubah','CssHapus');
 			header('Location: ' . BASEURL . '/kontrak/index');
 			exit;
 		}
