@@ -1,6 +1,6 @@
 
 <div class="judul">
-    <h4>Dashboard / <a href="<?= BASEURL; ?>/datel/index"><?= $data['judul'] ?></a></h4>
+    <h4>Dashboard / <a href="<?= BASEURL; ?>/witel/index"><?= $data['judul'] ?></a></h4>
 </div>
 <div class="head-table">
     <h4><?= $data['sub_judul'] ?></h4>

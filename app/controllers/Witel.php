@@ -1,6 +1,10 @@
 <?php
 
 class Witel extends Controller {
+	public function __construct(){
+		Flasher::startSession();	
+	}
+	
     public function index (){
 		$data['judul'] = 'Teritori';
 		$data['sub_judul'] = 'Daftar Witel';

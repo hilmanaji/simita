@@ -1,6 +1,10 @@
 <?php
 
 class Regional extends Controller {
+	public function __construct(){
+		Flasher::startSession();	
+	}
+	
     public function index (){
 		$data['judul'] = 'Teritori';
 		$data['sub_judul'] = 'Daftar Regional';

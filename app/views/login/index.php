@@ -175,7 +175,7 @@
   <h1><span>Login</span> SimiTa</h1>
   <input placeholder="Username" type="text" name="username"/>
   <input placeholder="Password" type="password" name="pass"/>
-  <button class="btn" type="submit">Log in</button>
+  <input class="btn" type="submit" value="Login">
   <div class="social">
   <button class="tw btn">Twitter</button>
   <button class="fb btn">Facebook</button>
@@ -183,9 +183,7 @@
   </div>
 </form>
 
-<footer>
-  <h5>Right click and visit: <a target="_blank" href="http://lifes.gd">Life's Good</a></h5>
-</footer>
+
 
     <script>
        $(document).ready(function(e){

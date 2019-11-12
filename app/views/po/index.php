@@ -8,7 +8,14 @@
     <div class="navigasi">
         <?php Flasher::flash(); ?>
         <form action="">
+        <?php
+        if($_SESSION["role_user"] == 'Admin') { ?>
             <a href="<?= BASEURL; ?>/po/tambahData">Tambah Data</a>
+		<?php }
+		else if($_SESSION["role_user"] == '') { 
+			echo "gk bisa nambahin";
+		} ?>
+           
         
             <span>Cari :</span>
             <input type="text" value="" name="" placeholder="Cari Data"> 

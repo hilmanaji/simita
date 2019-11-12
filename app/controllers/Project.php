@@ -4,7 +4,15 @@ class Project extends Controller {
     public function index (){
 		$data['judul'] = 'Project';
 		$data['sub_judul'] = 'Daftar Project';
-		$data['data_project'] = $this->model('DataHandle')->getAll($table = 'tbl_lop');
+
+		if ($_SESSION["role_user"] == 'admin') {
+			$data['data_project'] = $this->model('DataHandle')->getAll($table = 'tbl_lop');
+		}else {
+			$id_mitra = $_SESSION['id_mitra'];
+			$data['data_project'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_lop', $id_table = 'id_mitra', $id_mitra);
+		}
+
+		//$data['data_project'] = $this->model('DataHandle')->getAll($table = 'tbl_lop');
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar');
 		$this->view('project/index', $data);

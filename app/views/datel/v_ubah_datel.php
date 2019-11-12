@@ -8,18 +8,20 @@
 <div class="data-table">
     <div class="navigasi">
         <div class="gaya-form">
-            <form action="<?= BASEURL; ?>/datel/tambah/" method="post">
+            <form action="<?= BASEURL; ?>/datel/ubahData/" method="post">
+                <input type="hidden" name="id_datel" value="<?= $data['data_datel']['id_datel'] ?>">
                 <label for="id_witel">
                     <span>WITEL</span>
                     <select name="id_witel" class="select-field">
-                        <?php foreach ( $data['data_witel'] as $witel ) : ?>    
-                        <option value="<?= $witel['id_witel'] ?>"><?= $witel['witel'] ?></option>
+                        <option value="<?= $data['data_witel']['id_witel'] ?>"><?= $data['data_witel']['witel'] ?></option>
+                        <?php foreach ( $data['data_wit'] as $wit ) : ?>    
+                        <option value="<?= $wit['id_witel'] ?>"><?= $wit['witel'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </label>
-                <label for="datel">
+                <label for="witel">
                     <span>DATEL<span class="required">*</span></span>
-                    <input type="text" class="input-text" name="datel" value=""/>
+                    <input type="text" class="input-text" name="datel" value="<?= $data['data_datel']['datel'] ?>"/>
                 </label>
                 <label><span> </span><input type="submit" value="SIMPAN" /></label>
             </form>

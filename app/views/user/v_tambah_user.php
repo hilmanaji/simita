@@ -12,12 +12,22 @@
                 <label for="id_mitra">
                     <span>PERUSAHAAN</span>
                     <select name="id_mitra" class="select-field">
-                        <option value="OSP">ID Mitra/nama mitra</option>
+                        <?php foreach ( $data['data_mitra'] as $mitra ) : ?>    
+                        <option value="<?= $mitra['id_mitra'] ?>"><?= $mitra['nama_perusahaan'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </label>
                 <label for="nama">
                     <span>NAMA LENGKAP<span class="required">*</span></span>
                     <input type="text" class="input-text" name="nama" value="" required/>
+                </label>
+                <label for="alamat">
+                    <span>ALAMAT<span class="required">*</span></span>
+                    <input type="text" class="input-text" name="alamat" value="" required/>
+                </label>
+                <label for="email">
+                    <span>EMAIL<span class="required">*</span></span>
+                    <input type="email" class="input-text" name="email" value="" required/>
                 </label>
                 <label for="jk">
                     <span>JENIS KELAMIN</span>
@@ -30,9 +40,9 @@
                     <span>USERNAME<span class="required">*</span></span>
                     <input type="text" class="input-text" name="username" value="" required/>
                 </label>
-                <label for="password">
+                <label for="pass">
                     <span>PASSWORD<span class="required">*</span></span>
-                    <input type="password" class="input-text" name="password" value="" required/>
+                    <input type="password" class="input-text" name="pass" value="" required/>
                 </label>
                 <label for="role_user">
                     <span>TIPE USER</span>

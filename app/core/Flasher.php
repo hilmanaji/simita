@@ -19,4 +19,13 @@ class Flasher {
 
         unset($_SESSION['flash']);
     }
+
+    public static function startSession() {
+        if($_SESSION["role_user"] == 'Admin Project') {
+			header('Location: ' . BASEURL . '/login/index');
+		}
+		else if($_SESSION["role_user"] == '') {
+			header('Location: ' . BASEURL . '/login/index');
+		}
+    }
 }

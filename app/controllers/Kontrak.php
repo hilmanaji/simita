@@ -1,6 +1,11 @@
 <?php
 
 class Kontrak extends Controller {
+	public function __construct(){
+		if(!isset($_SESSION["username"]))  {  
+			header('Location: ' . BASEURL . '/login/index');  
+		}  	
+	}
     public function index (){
 		$data['judul'] = 'Kontrak';
 		$data['sub_judul'] = 'Daftar Kontrak';

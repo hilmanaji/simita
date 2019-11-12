@@ -36,7 +36,7 @@
                 <td><?= $sto['kode_sto'] ?></td>
                 <td><?= $sto['nama_sto'] ?></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/sto/ubah/<?= $sto['id_sto'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
+                    <a href="<?= BASEURL; ?>/sto/getUbah/<?= $sto['id_sto'] ?>/<?= $sto['id_datel'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
                     <a href="<?= BASEURL; ?>/sto/hapus/<?= $sto['id_sto'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                 </td>
             </tr>
