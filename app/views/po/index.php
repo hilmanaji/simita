@@ -9,7 +9,7 @@
         <?php Flasher::flash(); ?>
         <form action="">
         <?php
-        if($_SESSION["role_user"] == 'Admin') { ?>
+        if($_SESSION["role_user"] == 'Admin Project') { ?>
             <a href="<?= BASEURL; ?>/po/tambahData">Tambah Data</a>
 		<?php }
 		else if($_SESSION["role_user"] == '') { 

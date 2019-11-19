@@ -6,7 +6,7 @@ class Po extends Controller {
 		$data['sub_judul'] = 'List Purchase Order';
 		$data['data_po'] = $this->model('DataHandle')->getAll($table = 'tbl_po');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('po/index', $data);
 		$this->view('templates/footer');
 	}
@@ -15,7 +15,7 @@ class Po extends Controller {
 		$data['judul'] = 'Purchase Order';
 		$data['sub_judul'] = 'Tambah PO';
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('po/v_tambah_po',$data);
 		$this->view('templates/footer');
 	}
@@ -45,11 +45,11 @@ class Po extends Controller {
 	}
  
 	public function getUbah($id){
-		$data['judul'] = 'Ubah Data PO';
+		$data['judul'] = 'Purchase Order';
 		$data['sub_judul'] = 'Ubah Data PO';
 		$data['data_po'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_po',$id_table = 'id_po', $id);
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('po/v_ubah_po', $data);
 		$this->view('templates/footer');
 	}

@@ -11,7 +11,7 @@ class Kontrak extends Controller {
 		$data['sub_judul'] = 'Daftar Kontrak';
 		$data['data_kontrak'] = $this->model('DataHandle')->getAll($table = 'tbl_no_kontrak');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('kontrak/index', $data);
 		$this->view('templates/footer');
 	}
@@ -20,7 +20,7 @@ class Kontrak extends Controller {
 		$data['judul'] = 'Kontrak';
 		$data['sub_judul'] = 'Tambah Kontrak';
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('kontrak/v_tambah_kontrak',$data);
 		$this->view('templates/footer');
 	}
@@ -50,11 +50,11 @@ class Kontrak extends Controller {
 	}
  
 	public function getUbah($id){
-		$data['judul'] = 'Ubah Data kontrak';
+		$data['judul'] = 'Kontrak';
 		$data['sub_judul'] = 'Ubah Data kontrak';
 		$data['data_kontrak'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_no_kontrak',$id_table = 'id_kontrak', $id);
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('kontrak/v_ubah_kontrak', $data);
 		$this->view('templates/footer');
 	}

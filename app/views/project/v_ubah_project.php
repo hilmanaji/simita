@@ -7,16 +7,17 @@
 </div>
 <div class="data-table">
     <div class="gaya-form">
-        <form action="<?= BASEURL; ?>/project/tambah/" method="post">
+        <form action="<?= BASEURL; ?>/project/ubahData/" method="post">
         <div class="grid-project">
             <div class="grid-form">
                 <label for="id_project">
                     <span>ID PROJECT<span class="required">*</span></span>
-                    <input style="width: 40%" type="text" class="input-text" name="id_project" value="" required/>
+                    <input style="width: 40%" type="text" class="input-text" name="id_project" value="<?= $data['data_project']['id_project'] ?>" required/>
                 </label>
                 <label for="id_po">
                     <span>NO PO</span>
                     <select style="width: 40%" name="id_po" class="select-field">
+                        <option value="<?= $data['data_project']['id_po'] ?>"><?= $data['data_project']['no_po'] ?></option>
                         <?php foreach ( $data['data_po'] as $po ) : ?>    
                         <option value="<?= $po['id_po'] ?>"><?= $po['no_po'] ?></option>
                         <?php endforeach; ?>

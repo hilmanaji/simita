@@ -6,20 +6,20 @@ class Regional extends Controller {
 	}
 	
     public function index (){
-		$data['judul'] = 'Teritori';
+		$data['judul'] = 'Regional';
 		$data['sub_judul'] = 'Daftar Regional';
 		$data['data_regional'] = $this->model('DataHandle')->getAll($table = 'tbl_regional');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('regional/index', $data);
 		$this->view('templates/footer');
 	}
 	
 	public function tambahData() {
-		$data['judul'] = 'Teritori';
+		$data['judul'] = 'Regional';
 		$data['sub_judul'] = 'Tambah Regional';
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('regional/v_tambah_regional',$data);
 		$this->view('templates/footer');
 	}
@@ -49,11 +49,11 @@ class Regional extends Controller {
 	}
  
 	public function getUbah($id){
-		$data['judul'] = 'Ubah Data Regional';
+		$data['judul'] = 'Regional';
 		$data['sub_judul'] = 'Ubah Data Regional';
 		$data['data_regional'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_regional',$id_table = 'id_regional', $id);
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('regional/v_ubah_regional', $data);
 		$this->view('templates/footer');
 	}

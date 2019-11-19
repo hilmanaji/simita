@@ -1,5 +1,5 @@
 <div class="judul">
-    <h4>Home / <?= $data['judul'] ?></h4>
+    <h4>Setting / <?= $data['judul'] ?></h4>
 </div>
 <div class="head-table">
     <h4><?= $data['sub_judul'] ?></h4>

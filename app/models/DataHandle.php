@@ -12,7 +12,7 @@ class DataHandle {
         $this->db->query('SELECT * FROM ' . $table);
         return $this->db->resultSet();
     }
-    
+   
     public function getAllById($table, $id_table, $id) {
         $this->db->query('SELECT * FROM ' . $table . ' WHERE ' . $id_table . '= :id');
         $this->db->bind('id', $id);
@@ -54,6 +54,98 @@ class DataHandle {
 		$this->db->bind('pass', $data['pass']);
         
         return $this->db->single(); 
+    }
+
+    //Query Data Project
+    public function getProject() {
+        $this->db->query('SELECT
+        tbl_lop.id_project,
+        tbl_po.no_po,
+        tbl_regional.regional,
+        tbl_witel.witel,
+        tbl_datel.datel,
+        tbl_sto.nama_sto,
+        tbl_lop.nama_lokasi,
+        tbl_lop.jumlah_odp,
+        tbl_lop.jumlah_port,
+        tbl_lop.toc,
+        tbl_lop.nilai_material,
+        tbl_lop.nilai_jasa,
+        tbl_lop.total,
+        tbl_lop.status_progress,
+        tbl_lop.id_mitra
+        FROM
+        tbl_lop ,
+        tbl_regional,
+        tbl_witel,
+        tbl_datel,
+        tbl_sto,
+        tbl_po
+        WHERE
+        tbl_lop.id_po = tbl_po.id_po and tbl_lop.id_regional = tbl_regional.id_regional and tbl_lop.id_witel = tbl_witel.id_witel and tbl_lop.id_datel = tbl_datel.id_datel and tbl_lop.id_sto = tbl_sto.id_sto');
+        return $this->db->resultSet();
+    }
+
+    public function getProjectById($id_mitra) {
+        $this->db->query('SELECT
+        tbl_lop.id_project,
+        tbl_po.no_po,
+        tbl_regional.regional,
+        tbl_witel.witel,
+        tbl_datel.datel,
+        tbl_sto.nama_sto,
+        tbl_lop.nama_lokasi,
+        tbl_lop.jumlah_odp,
+        tbl_lop.jumlah_port,
+        tbl_lop.toc,
+        tbl_lop.nilai_material,
+        tbl_lop.nilai_jasa,
+        tbl_lop.total,
+        tbl_lop.status_progress,
+        tbl_lop.id_mitra
+        FROM
+        tbl_lop ,
+        tbl_regional,
+        tbl_witel,
+        tbl_datel,
+        tbl_sto,
+        tbl_po
+        WHERE
+        tbl_lop.id_po = tbl_po.id_po and tbl_lop.id_regional = tbl_regional.id_regional and tbl_lop.id_witel = tbl_witel.id_witel and tbl_lop.id_datel = tbl_datel.id_datel and tbl_lop.id_sto = tbl_sto.id_sto and tbl_lop.id_mitra = :id_mitra');
+        $this->db->bind('id_mitra', $id_mitra);
+
+        return $this->db->resultSet();
+    }
+
+    public function getProjectByIdp($id_project) {
+        $this->db->query('SELECT
+        tbl_lop.id_project,
+        tbl_po.no_po,
+        tbl_regional.regional,
+        tbl_witel.witel,
+        tbl_datel.datel,
+        tbl_sto.nama_sto,
+        tbl_lop.nama_lokasi,
+        tbl_lop.jumlah_odp,
+        tbl_lop.jumlah_port,
+        tbl_lop.toc,
+        tbl_lop.nilai_material,
+        tbl_lop.nilai_jasa,
+        tbl_lop.total,
+        tbl_lop.status_progress,
+        tbl_lop.id_mitra
+        FROM
+        tbl_lop ,
+        tbl_regional,
+        tbl_witel,
+        tbl_datel,
+        tbl_sto,
+        tbl_po
+        WHERE
+        tbl_lop.id_po = tbl_po.id_po and tbl_lop.id_regional = tbl_regional.id_regional and tbl_lop.id_witel = tbl_witel.id_witel and tbl_lop.id_datel = tbl_datel.id_datel and tbl_lop.id_sto = tbl_sto.id_sto and tbl_lop.id_project = :id_project');
+        $this->db->bind('id_project', $id_project);
+
+        return $this->db->resultSet();
     }
 
 
@@ -233,22 +325,24 @@ class DataHandle {
 
     // Spesifik Query Project
     public function tambahDataProject($data) {
-        $query = "INSERT INTO tbl_lop VALUES (:id_project, :no_po, :id_regional, :id_witel, :id_datel, :id_sto, :nama_lokasi, :jumlah_odp, :jumlah_port, :toc, :nilai_material, :nilai_jasa, :total, :id_mitra, :status_progress)";
+        $query = "INSERT INTO tbl_lop VALUES (:id_project, :id_po, :id_regional, :id_witel, :id_datel, :id_sto, :nama_lokasi, :jumlah_odp, :jumlah_port, :toc, :nilai_material, :nilai_jasa, :total, :status_progress, :id_mitra)";
 
         $this->db->query($query);
-        $this->db->bind('no_po', $data['no_po']);
+        $this->db->bind('id_project', $data['id_project']);
+        $this->db->bind('id_po', $data['id_po']);
         $this->db->bind('id_regional', $data['id_regional']);
         $this->db->bind('id_witel', $data['id_witel']);
         $this->db->bind('id_datel', $data['id_datel']);
         $this->db->bind('id_sto', $data['id_sto']);
+        $this->db->bind('nama_lokasi', $data['nama_lokasi']);
         $this->db->bind('jumlah_odp', $data['jumlah_odp']);
         $this->db->bind('jumlah_port', $data['jumlah_port']);
         $this->db->bind('toc', $data['toc']);
         $this->db->bind('nilai_material', $data['nilai_material']);
         $this->db->bind('nilai_jasa', $data['nilai_jasa']);
         $this->db->bind('total', $data['total']);
-        $this->db->bind('id_mitra', $data['id_mitra']);
         $this->db->bind('status_progress', $data['status_progress']);
+        $this->db->bind('id_mitra', $data['id_mitra']);
 
         $this->db->execute();
 
@@ -260,23 +354,24 @@ class DataHandle {
 
         $this->db->query($query);
         $this->db->bind('id_project', $data['id_project']);
-        $this->db->bind('no_po', $data['no_po']);
+        $this->db->bind('id_po', $data['id_po']);
         $this->db->bind('id_regional', $data['id_regional']);
         $this->db->bind('id_witel', $data['id_witel']);
         $this->db->bind('id_datel', $data['id_datel']);
         $this->db->bind('id_sto', $data['id_sto']);
+        $this->db->bind('nama_lokasi', $data['nama_lokasi']);
         $this->db->bind('jumlah_odp', $data['jumlah_odp']);
         $this->db->bind('jumlah_port', $data['jumlah_port']);
         $this->db->bind('toc', $data['toc']);
         $this->db->bind('nilai_material', $data['nilai_material']);
         $this->db->bind('nilai_jasa', $data['nilai_jasa']);
         $this->db->bind('total', $data['total']);
-        $this->db->bind('id_mitra', $data['id_mitra']);
         $this->db->bind('status_progress', $data['status_progress']);
+        $this->db->bind('id_mitra', $data['id_mitra']);
 
         $this->db->execute();
 
-        return $this->db->rowCount(); 
+        return $this->db->rowCount();
     }
 
     // Spesifik Query Mitra
@@ -323,7 +418,7 @@ class DataHandle {
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('jk', $data['jk']);
         $this->db->bind('username', $data['username']);
-        $this->db->bind('pass', $data['pass']);
+        $this->db->bind('pass', md5($data['pass']));
         $this->db->bind('role_user', $data['role_user']);
         $this->db->bind('no_hp', $data['no_hp']);
         $this->db->bind('email', $data['email']);
@@ -334,7 +429,7 @@ class DataHandle {
     }
 
     public function ubahDataUser($data) {
-        $query = "UPDATE tbl_user SET id_mitra = :id_mitra, nama = :nama, jk = :jk, username = :username, pass = :pass, role_user = :role_user, no_hp = :no_hp, email = :email";
+        $query = "UPDATE tbl_user SET id_mitra = :id_mitra, nama = :nama, jk = :jk, username = :username, pass = :pass, role_user = :role_user, no_hp = :no_hp, email = :email WHERE id_user = :id_user";
         
         $this->db->query($query);
         $this->db->bind('id_user', $data['id_user']);
@@ -342,7 +437,7 @@ class DataHandle {
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('jk', $data['jk']);
         $this->db->bind('username', $data['username']);
-        $this->db->bind('pass', $data['pass']);
+        $this->db->bind('pass', md5($data['pass']));
         $this->db->bind('role_user', $data['role_user']);
         $this->db->bind('no_hp', $data['no_hp']);
         $this->db->bind('email', $data['email']);
@@ -353,21 +448,53 @@ class DataHandle {
     }
 
     // Spesifik Query Status PO
-    public function tambahStatusPO () {
+    public function tambahDataStatusPo ($data) {
+        $query = "INSERT INTO tbl_status_po VALUES ('', :status_po)";
 
+        $this->db->query($query);
+        $this->db->bind('status_po', $data['status_po']);
+        
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 
-    public function ubahStatusPO () {
+    public function ubahDataStatusPo ($data) {
+        $query = "UPDATE tbl_status_po SET status_po = :status_po WHERE id_status_po = :id_status_po";
+        
+        $this->db->query($query);
+        $this->db->bind('id_status_po', $data['id_status_po']);
+        $this->db->bind('status_po', $data['status_po']);
 
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 
     // Spesifik Query Status Project
-    public function tambahStatusProject () {
+    public function tambahDataStatusProject ($data) {
+        $query = "INSERT INTO tbl_status_project VALUES ('', :kegiatan)";
 
+        $this->db->query($query);
+        $this->db->bind('kegiatan', $data['kegiatan']);
+        
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 
-    public function ubahStatusProject () {
+    public function ubahDataStatusProject ($data) {
+        $query = "UPDATE tbl_status_project SET kegiatan = :kegiatan WHERE id_kegiatan = :id_kegiatan";
         
+        $this->db->query($query);
+        $this->db->bind('id_kegiatan', $data['id_kegiatan']);
+        $this->db->bind('kegiatan', $data['kegiatan']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 
 

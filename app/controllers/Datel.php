@@ -6,21 +6,21 @@ class Datel extends Controller {
 	}
 	
     public function index (){
-		$data['judul'] = 'Teritori';
+		$data['judul'] = 'Datel';
 		$data['sub_judul'] = 'Daftar Datel';
 		$data['data_datel'] = $this->model('DataHandle')->getAll($table = 'tbl_datel');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('datel/index', $data);
 		$this->view('templates/footer');
 	}
 	
 	public function tambahData() {
-		$data['judul'] = 'Teritori / Datel';
+		$data['judul'] = 'Datel';
 		$data['sub_judul'] = 'Tambah Datel';
 		$data['data_witel'] = $this->model('DataHandle')->getAll($table = 'tbl_witel');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('datel/v_tambah_datel',$data);
 		$this->view('templates/footer');
 	}
@@ -50,13 +50,13 @@ class Datel extends Controller {
 	}
  
 	public function getUbah($id, $id_wit){
-		$data['judul'] = 'Ubah Data Datel';
+		$data['judul'] = 'Datel';
 		$data['sub_judul'] = 'Ubah Data Datel';
 		$data['data_datel'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_datel',$id_table = 'id_datel', $id);
 		$data['data_witel'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_witel',$id_table = 'id_witel', $id_wit);
 		$data['data_wit'] = $this->model('DataHandle')->getAll($table = 'tbl_witel');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('datel/v_ubah_datel', $data);
 		$this->view('templates/footer');
 	}

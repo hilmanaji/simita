@@ -6,7 +6,7 @@ class Mitra extends Controller {
 		$data['sub_judul'] = 'Daftar Mitra';
 		$data['data_mitra'] = $this->model('DataHandle')->getAll($table = 'tbl_mitra');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('mitra/index', $data);
 		$this->view('templates/footer');
 	}
@@ -15,7 +15,7 @@ class Mitra extends Controller {
 		$data['judul'] = 'mitra';
 		$data['sub_judul'] = 'Tambah Mitra';
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('mitra/v_tambah_mitra',$data);
 		$this->view('templates/footer');
 	}
@@ -49,7 +49,7 @@ class Mitra extends Controller {
 		$data['sub_judul'] = 'Ubah Data Mitra';
 		$data['data_mitra'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_mitra',$id_table = 'id_mitra', $id);
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('mitra/v_ubah_mitra', $data);
 		$this->view('templates/footer');
 	}

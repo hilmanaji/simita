@@ -21,10 +21,13 @@ class Flasher {
     }
 
     public static function startSession() {
-        if($_SESSION["role_user"] == 'Admin Project') {
+        if($_SESSION["role_user"] == '') {
 			header('Location: ' . BASEURL . '/login/index');
 		}
-		else if($_SESSION["role_user"] == '') {
+		else if($_SESSION["role_user"] == 'Admin Mitra') {
+			header('Location: ' . BASEURL . '/login/index');
+        }
+        else if($_SESSION["role_user"] == 'Admin Procurement') {
 			header('Location: ' . BASEURL . '/login/index');
 		}
     }

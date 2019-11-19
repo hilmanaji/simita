@@ -12,7 +12,7 @@ class User extends Controller {
 		$data['sub_judul'] = 'Daftar User';
 		$data['data_user'] = $this->model('DataHandle')->getAll($table = 'tbl_user');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('user/index', $data);
         $this->view('templates/footer');
     }
@@ -22,7 +22,7 @@ class User extends Controller {
 		$data['sub_judul'] = 'Tambah User';
 		$data['data_mitra'] = $this->model('DataHandle')->getAll($table = 'tbl_mitra');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('user/v_tambah_user',$data);
 		$this->view('templates/footer');
 	}
@@ -56,7 +56,7 @@ class User extends Controller {
 		$data['sub_judul'] = 'Ubah Data User';
 		$data['data_user'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_user',$id_table = 'id_user', $id);
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('user/v_ubah_user', $data);
 		$this->view('templates/footer');
 	}
@@ -79,7 +79,7 @@ class User extends Controller {
 		$data['sub_judul'] = 'Ubah Data Profile';
 		$data['data_user'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_user',$id_table = 'id_user', $id);
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('user/v_ubah_profile', $data);
 		$this->view('templates/footer');
 	}   

@@ -1,20 +1,27 @@
 <?php
 
 class Project extends Controller {
+	public function __construct(){
+		if(!isset($_SESSION["username"]))  {  
+			header('Location: ' . BASEURL . '/login/index');  
+		}
+	}
     public function index (){
 		$data['judul'] = 'Project';
 		$data['sub_judul'] = 'Daftar Project';
 
-		if ($_SESSION["role_user"] == 'admin') {
-			$data['data_project'] = $this->model('DataHandle')->getAll($table = 'tbl_lop');
+		if ($_SESSION["role_user"] == 'Admin Project') {
+			$data['data_project'] = $this->model('DataHandle')->getProject();
+
 		}else {
 			$id_mitra = $_SESSION['id_mitra'];
-			$data['data_project'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_lop', $id_table = 'id_mitra', $id_mitra);
+			$data['data_project'] = $this->model('DataHandle')->getProjectById($id_mitra);
 		}
 
 		//$data['data_project'] = $this->model('DataHandle')->getAll($table = 'tbl_lop');
+		// var_dump($data);
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('project/index', $data);
 		$this->view('templates/footer');
 	}
@@ -27,13 +34,16 @@ class Project extends Controller {
 		$data['data_witel'] = $this->model('DataHandle')->getAll($table = 'tbl_witel');
 		$data['data_datel'] = $this->model('DataHandle')->getAll($table = 'tbl_datel');
 		$data['data_sto'] = $this->model('DataHandle')->getAll($table = 'tbl_sto');
+		$data['data_mitra'] = $this->model('DataHandle')->getAll($table = 'tbl_mitra');
 		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
+		$this->view('templates/sidebar', $data);
 		$this->view('project/v_tambah_project',$data);
 		$this->view('templates/footer');
 	}
 
 	public function tambah() {
+		// var_dump($_POST);
+		
 		if( $this->model('DataHandle')->tambahDataProject($_POST) > 0) {
 			Flasher::setFlash('Berhasil','ditambahkan','CssTambah');
 			header('Location: ' . BASEURL . '/project/index');
@@ -42,7 +52,7 @@ class Project extends Controller {
 			Flasher::setFlash('gagal','ditambahkan','CssTambah');
 			header('Location: ' . BASEURL . '/project/index');
 			exit;
-		}
+		} 
 	}
 
 	public function hapus($id) {
@@ -58,13 +68,16 @@ class Project extends Controller {
 	}
  
 	public function getUbah($id){
-		$data['judul'] = 'Ubah Data Project';
+		$data['judul'] = 'Project';
 		$data['sub_judul'] = 'Ubah Data Project';
-		$data['data_project'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_lop',$id_table = 'id_project', $id);
-		$this->view('templates/header', $data);
-		$this->view('templates/sidebar');
-		$this->view('project/v_ubah_project', $data);
-		$this->view('templates/footer');
+		$data['data_project'] = $this->model('DataHandle')->getProjectByIdp($id);
+		$data['data_po'] = $this->model('DataHandle')->getAll($table = 'tbl_po');
+		
+		// var_dump ($data);
+		 $this->view('templates/header', $data);
+		 $this->view('templates/sidebar', $data);
+		 $this->view('project/v_ubah_project', $data);
+		 $this->view('templates/footer');
 	}
 
 	
