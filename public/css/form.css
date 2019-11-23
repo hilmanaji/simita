@@ -26,7 +26,7 @@
 }
 
 .gaya-form input.input-text, .gaya-form .select-field{
-	width: 55%;	
+	width: 60%;	
 }
 
 .gaya-form input.input-text,
@@ -58,7 +58,8 @@
 }
 
 .gaya-form input[type=submit],
-.gaya-form input[type=button]{
+.gaya-form input[type=button],
+.gaya-form input[type=image]{
 	border: none;
 	padding: 8px 15px 8px 15px;
 	background: #e01b1b;
@@ -71,7 +72,9 @@
 	-moz-border-radius: 3px;
 }
 .gaya-form input[type=submit]:hover,
-.gaya-form input[type=button]:hover{
+.gaya-form input[type=button]:hover,
+.gaya-form input[type=image]:hover{
 	background: #690c0c;
 	color: #fff;
 }
+

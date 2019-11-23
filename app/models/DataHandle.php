@@ -56,6 +56,18 @@ class DataHandle {
         return $this->db->single(); 
     }
 
+    public function getCountRow ($table, $kolom) {
+        $this->db->query('SELECT COUNT('.$kolom.') as jumlah FROM '.$table.' ');
+        return $this->db->single();
+    }
+
+    public function getCountRowById ($table, $kolom, $id, $kondisi) {
+        $this->db->query('SELECT COUNT('.$kolom.') as jumlah FROM '.$table.' WHERE  '.$id.' = '.$kondisi.' ');
+        $this->db->bind('username', $data['username']);
+        return $this->db->single();
+    }
+    // End General Query
+
     //Query Data Project
     public function getProject() {
         $this->db->query('SELECT
@@ -133,6 +145,7 @@ class DataHandle {
         tbl_lop.nilai_jasa,
         tbl_lop.total,
         tbl_lop.status_progress,
+        tbl_mitra.nama_perusahaan,
         tbl_lop.id_mitra
         FROM
         tbl_lop ,
@@ -140,17 +153,14 @@ class DataHandle {
         tbl_witel,
         tbl_datel,
         tbl_sto,
+        tbl_mitra,
         tbl_po
         WHERE
-        tbl_lop.id_po = tbl_po.id_po and tbl_lop.id_regional = tbl_regional.id_regional and tbl_lop.id_witel = tbl_witel.id_witel and tbl_lop.id_datel = tbl_datel.id_datel and tbl_lop.id_sto = tbl_sto.id_sto and tbl_lop.id_project = :id_project');
+        tbl_lop.id_po = tbl_po.id_po and tbl_lop.id_regional = tbl_regional.id_regional and tbl_lop.id_witel = tbl_witel.id_witel and tbl_lop.id_datel = tbl_datel.id_datel and tbl_lop.id_sto = tbl_sto.id_sto and tbl_lop.id_mitra = tbl_mitra.id_mitra and tbl_lop.id_project = :id_project');
         $this->db->bind('id_project', $id_project);
 
-        return $this->db->resultSet();
+        return $this->db->single();
     }
-
-
-
-    // End General Query
 
     // Spesifik Query Regional
     public function tambahDataRegional($data){
@@ -497,6 +507,42 @@ class DataHandle {
         return $this->db->rowCount();
     }
 
+    //Query Tambah data progress
+    public function tambahDataProgres ($data) {
+        $query = "INSERT INTO tbl_progres_project VALUES ('', :id_project, :id_kegiatan, :tgl_mulai, :tgl_selesai, :keterangan, :evidence)";
+
+        $this->db->query($query);
+        $this->db->bind('id_project', $data['id_project']);
+        $this->db->bind('id_kegiatan', $data['id_kegiatan']);
+        $this->db->bind('tgl_mulai', $data['tgl_mulai']);
+        $this->db->bind('tgl_selesai', $data['tgl_selesai']);
+        $this->db->bind('keterangan', $data['keterangan']);
+        $this->db->bind('evidence', $data['evidence']);
+        
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    // Query Get Data Progres
+
+    public function getDataProgresById ($id) {
+        $this->db->query('SELECT
+        tbl_progres_project.id_progres_project,
+        tbl_progres_project.id_project,
+        tbl_status_project.kegiatan,
+        tbl_progres_project.tgl_mulai,
+        tbl_progres_project.tgl_selesai,
+        tbl_progres_project.keterangan,
+        tbl_progres_project.evidence
+        FROM
+        tbl_progres_project
+        INNER JOIN tbl_status_project ON tbl_progres_project.id_kegiatan = tbl_status_project.id_kegiatan AND tbl_progres_project.id_project = :id ');
+
+        $this->db->bind('id', $id);
+        return $this->db->resultSet();
+    }
 
 
     

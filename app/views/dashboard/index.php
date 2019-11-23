@@ -5,7 +5,7 @@
                 <img src="<?= BASEURL;?>/img/progress.png" alt="" width="50" heigth="50">
             </div>
             <div class="text-data">
-                data
+                <h1><?= $data['jumlah_project']['jumlah']; ?></h1>
             </div>
         </div>
         <div class="grid-item item2">
