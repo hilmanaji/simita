@@ -526,7 +526,6 @@ class DataHandle {
     }
 
     // Query Get Data Progres
-
     public function getDataProgresById ($id) {
         $this->db->query('SELECT
         tbl_progres_project.id_progres_project,
@@ -542,6 +541,24 @@ class DataHandle {
 
         $this->db->bind('id', $id);
         return $this->db->resultSet();
+    }
+
+    // Query Get Data Progres
+    public function getDataProgresByIdp ($id) {
+        $this->db->query('SELECT
+        tbl_progres_project.id_progres_project,
+        tbl_progres_project.id_project,
+        tbl_status_project.kegiatan,
+        tbl_progres_project.tgl_mulai,
+        tbl_progres_project.tgl_selesai,
+        tbl_progres_project.keterangan,
+        tbl_progres_project.evidence
+        FROM
+        tbl_progres_project
+        INNER JOIN tbl_status_project ON tbl_progres_project.id_kegiatan = tbl_status_project.id_kegiatan AND tbl_progres_project.id_progres_project = :id ');
+
+        $this->db->bind('id', $id);
+        return $this->db->single();
     }
 
 

@@ -13,7 +13,7 @@
             <a href="<?= BASEURL;?>/po/index" <?php if($halaman == "Purchase Order") echo "class='active'"; ?> ><img style="float : left;" src="<?= BASEURL;?>/img/purchase.png" alt="" width="25" heigth="25">&nbsp Purchase Order</a>
             <a href="<?= BASEURL;?>/project/index" <?php if($halaman == "Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Project</a>
             <a href="<?= BASEURL;?>/progresproject/index" <?php if($halaman == "Progres Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Progres Project</a>
-            <a href="<?= BASEURL;?>/progrestagihan/index" <?php if($halaman == "Progress Tagihan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/tagihan.png" alt="" width="20" heigth="20">&nbsp Progres Tagihan</a>
+            <a href="<?= BASEURL;?>/progrestagihan/index" <?php if($halaman == "Progres Tagihan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/tagihan.png" alt="" width="20" heigth="20">&nbsp Progres Tagihan</a>
             <a href="<?= BASEURL;?>/laporan/index" <?php if($halaman == "Laporan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/laporan.png" alt="" width="20" heigth="20">&nbsp Laporan</a>
             
             <button class="dropdown-btn"><img style="float : left;" src="<?= BASEURL;?>/img/teritori.png" alt="" width="20" heigth="20">&nbsp Teritori
@@ -42,8 +42,8 @@
             <a href="<?= BASEURL;?>/kontrak/index" <?php if($halaman == "Kontrak") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/kontrak.png" alt="" width="20" heigth="20">&nbsp Kontrak</a>
             <a href="<?= BASEURL;?>/po/index" <?php if($halaman == "Purchase Order") echo "class='active'"; ?> ><img style="float : left;" src="<?= BASEURL;?>/img/purchase.png" alt="" width="25" heigth="25">&nbsp Purchase Order</a>
             <a href="<?= BASEURL;?>/project/index" <?php if($halaman == "Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Project</a>
-            <a href="<?= BASEURL;?>/progresproject/index" <?php if($halaman == "Progress Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Progres Project</a>
-            <a href="<?= BASEURL;?>/progrestagihan/index" <?php if($halaman == "Progress Dokumen") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/tagihan.png" alt="" width="20" heigth="20">&nbsp Progres Tagihan</a>
+            <a href="<?= BASEURL;?>/progresproject/index" <?php if($halaman == "Progres Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Progres Project</a>
+            <a href="<?= BASEURL;?>/progrestagihan/index" <?php if($halaman == "Progres Tagihan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/tagihan.png" alt="" width="20" heigth="20">&nbsp Progres Tagihan</a>
             <a href="<?= BASEURL;?>/laporan/index" <?php if($halaman == "Laporan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/laporan.png" alt="" width="20" heigth="20">&nbsp Laporan</a>
 
             <button class="dropdown-btn"><img style="float : left;" src="<?= BASEURL;?>/img/setting.png" alt="" width="20" heigth="20">&nbsp Setting
@@ -58,8 +58,8 @@
             <a href="<?= BASEURL;?>/kontrak/index" <?php if($halaman == "Kontrak") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/kontrak.png" alt="" width="20" heigth="20">&nbsp Kontrak</a>
             <a href="<?= BASEURL;?>/po/index" <?php if($halaman == "Purchase Order") echo "class='active'"; ?> ><img style="float : left;" src="<?= BASEURL;?>/img/purchase.png" alt="" width="25" heigth="25">&nbsp Purchase Order</a>
             <a href="<?= BASEURL;?>/project/index" <?php if($halaman == "Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Project</a>
-            <a href="<?= BASEURL;?>/progresproject/index" <?php if($halaman == "Progress Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Progres Project</a>
-            <a href="<?= BASEURL;?>/progrestagihan/index" <?php if($halaman == "Progress Dokumen") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/tagihan.png" alt="" width="20" heigth="20">&nbsp Progres Tagihan</a>
+            <a href="<?= BASEURL;?>/progresproject/index" <?php if($halaman == "Progres Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Progres Project</a>
+            <a href="<?= BASEURL;?>/progrestagihan/index" <?php if($halaman == "Progres Tagihan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/tagihan.png" alt="" width="20" heigth="20">&nbsp Progres Tagihan</a>
             <a href="<?= BASEURL;?>/laporan/index" <?php if($halaman == "Laporan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/laporan.png" alt="" width="20" heigth="20">&nbsp Laporan</a>
 
             <button class="dropdown-btn"><img style="float : left;" src="<?= BASEURL;?>/img/setting.png" alt="" width="20" heigth="20">&nbsp Setting

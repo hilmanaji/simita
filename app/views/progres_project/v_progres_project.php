@@ -81,7 +81,7 @@
             <?php endforeach; ?>
             <tbody>
             <tbody>
-                <form action="<?= BASEURL; ?>/ProgresProject/tambahProgres/" method="post">
+                <form action="<?= BASEURL; ?>/ProgresProject/tambahProgres/" method="post" enctype="multipart/form-data">
                 <td>
                     <div class="gaya-form">
                         <label for="id_kegiatan">
