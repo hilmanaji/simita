@@ -15,7 +15,7 @@
             <thead>
             <tr>
                 <th>NO</th>
-                <th>ID PROKECT</th>
+                <th>ID PROJECT</th>
                 <th>NO PO</th>
                 <th>LOKASI</th>
                 <th>TOC</th>

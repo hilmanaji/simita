@@ -14,26 +14,24 @@
         <table class="fl-table">
             <thead>
             <tr>
-                <th>NO</th>
-                <th>ID PROKECT</th>
-                <th>NO PO</th>
-                <th>LOKASI</th>
+                <th>NO PURCHASE ORDER (PO)</th>
                 <th>TOC</th>
+                <th>NILAI</th>
+                <th>JUMLAH PROJECT</th>
                 <th>UPDATE</th>
             </tr>
             </thead>
             <tbody>
             <?php
             $no = 1; ?>
-            <?php foreach ( $data['data_project'] as $project ) : ?>
+            <?php foreach ( $data['data_po'] as $po ) : ?>
             <tr>
-                <td><?= $no++; ?></td>
-                <td><?= $project['id_project'] ?></td>
-                <td><?= $project['no_po'] ?></td>
-                <td><?= $project['nama_lokasi'] ?></td>
-                <td><?= $project['toc'] ?></td>
+                <td><?= $po['no_po'] ?></td>
+                <td><?= $po['tgl_selesai'] ?></td>
+                <td><?= $po['total'] ?></td>
+                <td><?= $po['jum_project'] ?></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/ProgresProject/updateProject/<?= $project['id_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
+                    <a href="<?= BASEURL; ?>/ProgresProject/updateTagihan/<?= $po['id_po'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                 </td>
             </tr>
             <?php endforeach; ?>

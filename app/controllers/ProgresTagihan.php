@@ -5,11 +5,11 @@ class ProgresTagihan extends Controller {
         $data['judul'] = 'Progres Tagihan';
         $data['sub_judul'] = 'Update Perkembangan Tagihan';
         if ($_SESSION["role_user"] == 'Admin Project') {
-			$data['data_project'] = $this->model('DataHandle')->getProject();
+			$data['data_po'] = $this->model('DataHandle')->getAll($table='tbl_po');
 
 		}else {
 			$id_mitra = $_SESSION['id_mitra'];
-			$data['data_project'] = $this->model('DataHandle')->getProjectById($id_mitra);
+			$data['data_po'] = $this->model('DataHandle')->getAllById($table ='tbl_po', $id_table = 'id_mitra', $id_mitra);
 		}
 
         $this->view('templates/header', $data);

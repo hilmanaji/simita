@@ -61,11 +61,11 @@ class ProgresProject extends Controller {
 
 				if ( $this->model('DataHandle')->tambahDataProgres($data) > 0) {
 					Flasher::setFlash('Berhasil','ditambahkan','CssTambah');
-					header('Location: ' . BASEURL . '/ProgresProject/index');
+					header('Location: ' . BASEURL . '/ProgresProject/updateProject/'. $id_project .'');
 					 exit;
 				} else {
 					Flasher::setFlash('gagal','ditambahkan','CssTambah');
-					header('Location: ' . BASEURL . '/ProgresProject/index');
+					header('Location: ' . BASEURL . '/ProgresProject/updateProject/'. $id_project .'');
 					exit;
 				}
 
