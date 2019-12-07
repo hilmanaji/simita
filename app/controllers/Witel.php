@@ -61,7 +61,6 @@ class Witel extends Controller {
 		$this->view('templates/footer');
 	}
 
-	
 	public function ubahData() {
 		if( $this->model('DataHandle')->ubahDatawitel ($_POST) > 0) {
 			Flasher::setFlash('Berhasil','diubah','CssUpdate');

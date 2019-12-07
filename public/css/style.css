@@ -248,7 +248,7 @@ td a:hover {
 
 .tombol {
     display: inline-block;
-    background-color: #db2727;
+    background-color: #c0392b;
     color: #FFFFFF;
     padding: 10px 15px;
     transition: background .3s;
@@ -291,7 +291,7 @@ div .CssTambah {
 
 div .CssHapus {
     width: 30%;
-    background-color: #e03e3e;
+    background-color: #c0392b;
     color: #FFFFFF;
     padding: 10px 15px 10px 10px;
     border-radius: 4px;

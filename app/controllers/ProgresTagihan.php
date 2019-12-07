@@ -1,6 +1,12 @@
 <?php
 
 class ProgresTagihan extends Controller {
+	public function __construct(){
+		if(!isset($_SESSION["username"]))  {  
+			header('Location: ' . BASEURL . '/login/index');  
+		}
+	}
+	
     public function index () {
         $data['judul'] = 'Progres Tagihan';
         $data['sub_judul'] = 'Update Perkembangan Tagihan';
@@ -11,6 +17,8 @@ class ProgresTagihan extends Controller {
 			$id_mitra = $_SESSION['id_mitra'];
 			$data['data_po'] = $this->model('DataHandle')->getAllById($table ='tbl_po', $id_table = 'id_mitra', $id_mitra);
 		}
+		$id_mitra = $_SESSION['id_mitra'];
+		//$data['jumlah_project'] = $this->model('DataHandle')->getCountRowById ($table = 'tbl_po', $kolom = 'no_po', $id = 'id_mitra', $kondisi = $id_mitra);
 
         $this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
@@ -18,23 +26,23 @@ class ProgresTagihan extends Controller {
 		$this->view('templates/footer');
     }
 
-    public function updateProject ($id) {
-        $data['judul'] = 'Progres Project';
-		$data['sub_judul'] = 'Update Perkembangan Project';
-		$data['data_project'] = $this->model('DataHandle')->getProjectByIdp($id);
-        $data['data_progres'] = $this->model('DataHandle')->getDataProgresById ($id);
-        $data['data_status'] = $this->model('DataHandle')->getAll($table = 'tbl_status_project');
+    public function updateTagihan ($id) {
+        $data['judul'] = 'Progres Tagihan';
+		$data['sub_judul'] = 'Update Perkembangan Dokumen Tagihan';
+		$data['data_po'] = $this->model('DataHandle')->getAllWhere ($table = 'tbl_po', $id_table = 'id_po', $id);
+        $data['data_progres'] = $this->model('DataHandle')->getDataTagihanById ($id);
+        $data['data_status'] = $this->model('DataHandle')->getAll($table = 'tbl_status_po');
 
 
         $this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
-		$this->view('progres_project/v_progres_project',$data);
+		$this->view('progres_tagihan/v_progres_tagihan',$data);
 		$this->view('templates/footer');
     }
 
     public function tambahProgres () {
-		$id_kegiatan = $_POST['id_kegiatan'];
-		$id_project = $_POST['id_project'];
+		$id_kegiatan = $_POST['id_posisi_po'];
+		$id_po = $_POST['id_po'];
 		$tgl_mulai = $_POST['tgl_mulai'];
 		$tgl_selesai = $_POST['tgl_selesai'];
 		$keterangan = $_POST['keterangan'];
@@ -52,20 +60,20 @@ class ProgresTagihan extends Controller {
 
 				$data = array(
 					'id_kegiatan' => $id_kegiatan,
-					'id_project' => $id_project,
+					'id_po' => $id_po,
 					'tgl_mulai' => $tgl_mulai,
 					'tgl_selesai' => $tgl_selesai,
 					'keterangan' => $keterangan,
 					'evidence' => $nama
 				 );
 
-				if ( $this->model('DataHandle')->tambahDataProgres($data) > 0) {
+				if ( $this->model('DataHandle')->tambahDataProgresTagihan($data) > 0) {
 					Flasher::setFlash('Berhasil','ditambahkan','CssTambah');
-					header('Location: ' . BASEURL . '/ProgresProject/index');
+					header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
 					 exit;
 				} else {
 					Flasher::setFlash('gagal','ditambahkan','CssTambah');
-					header('Location: ' . BASEURL . '/ProgresProject/index');
+					header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
 					exit;
 				}
 

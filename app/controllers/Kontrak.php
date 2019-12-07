@@ -6,6 +6,7 @@ class Kontrak extends Controller {
 			header('Location: ' . BASEURL . '/login/index');  
 		}  	
 	}
+
     public function index (){
 		$data['judul'] = 'Kontrak';
 		$data['sub_judul'] = 'Daftar Kontrak';
@@ -58,7 +59,6 @@ class Kontrak extends Controller {
 		$this->view('kontrak/v_ubah_kontrak', $data);
 		$this->view('templates/footer');
 	}
-
 	
 	public function ubahData() {
 		if( $this->model('DataHandle')->ubahDataKontrak ($_POST) > 0) {

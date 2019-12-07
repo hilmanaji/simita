@@ -7,6 +7,7 @@ class Dashboard extends Controller {
 		}
 		
 	}
+	
 	public function index () {
 		$data['judul'] = 'Dashboard';
 		$data['jumlah_project'] = $this->model('DataHandle')->getCountRow ($table = 'tbl_lop', $kolom = 'nama_lokasi');

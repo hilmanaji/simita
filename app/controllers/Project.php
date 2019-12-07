@@ -6,6 +6,7 @@ class Project extends Controller {
 			header('Location: ' . BASEURL . '/login/index');  
 		}
 	}
+
     public function index (){
 		$data['judul'] = 'Project';
 		$data['sub_judul'] = 'Daftar Project';
@@ -80,7 +81,6 @@ class Project extends Controller {
 		 $this->view('templates/footer');
 	}
 
-	
 	public function ubahData() {
 		if( $this->model('DataHandle')->ubahDataProject ($_POST) > 0) {
 			Flasher::setFlash('Berhasil','diubah','CssUpdate');

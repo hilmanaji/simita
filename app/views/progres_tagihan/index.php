@@ -29,9 +29,15 @@
                 <td><?= $po['no_po'] ?></td>
                 <td><?= $po['tgl_selesai'] ?></td>
                 <td><?= $po['total'] ?></td>
-                <td><?= $po['jum_project'] ?></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/ProgresProject/updateTagihan/<?= $po['id_po'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
+                    <?php
+                    $id_po = $po['id_po'];
+                    $data['data_count'] = $this->model('DataHandle')->getCountRowById ($table = 'tbl_lop', $kolom = 'nama_lokasi', $id = 'id_po', $kondisi = $id_po );
+
+                    ?>
+                    <?= $data['data_count']['jumlah'] ?></td>
+                <td>
+                    <a href="<?= BASEURL; ?>/ProgresTagihan/updateTagihan/<?= $po['id_po'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
                 </td>
             </tr>
             <?php endforeach; ?>

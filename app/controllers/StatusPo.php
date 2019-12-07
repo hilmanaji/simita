@@ -2,7 +2,7 @@
 
 class StatusPo extends Controller {
 	public function __construct(){
-		
+		Flasher::startSession();
     }
     
     public function index (){
@@ -60,7 +60,6 @@ class StatusPo extends Controller {
 		$this->view('templates/footer');
 	}
 
-	
 	public function ubahData() {
 		if( $this->model('DataHandle')->ubahDataStatusPo ($_POST) > 0) {
 			Flasher::setFlash('Berhasil','diubah','CssUpdate');

@@ -1,6 +1,12 @@
 <?php
 
 class ProgresProject extends Controller {
+	public function __construct() {
+		if(!isset($_SESSION["username"]))  {  
+			header('Location: ' . BASEURL . '/login/index');  
+		}
+	}
+
     public function index () {
         $data['judul'] = 'Progres Project';
         $data['sub_judul'] = 'Update Perkembangan Project';
@@ -48,7 +54,7 @@ class ProgresProject extends Controller {
 		if (in_array($ekstensi, $ekstensi_benar) === true){
 			if ($ukuran < 1044070){
 
-				move_uploaded_file($file_tmp, 'file/'.$nama);
+				move_uploaded_file($file_tmp, 'files/'.$nama);
 
 				$data = array(
 					'id_kegiatan' => $id_kegiatan,
@@ -84,7 +90,8 @@ class ProgresProject extends Controller {
 	public function ubahProgres ($id) {
         $data['judul'] = 'Progres Project';
 		$data['sub_judul'] = 'Ubah Detail Progres';
-		
+		$data['data_project'] = $this->model('DataHandle')->getProjectByIdp($id);
+	
         $data['data_progres'] = $this->model('DataHandle')->getDataProgresByIdp ($id);
         $data['data_status'] = $this->model('DataHandle')->getAll($table = 'tbl_status_project');
 
@@ -93,7 +100,19 @@ class ProgresProject extends Controller {
 		$this->view('templates/sidebar', $data);
 		$this->view('progres_project/v_ubah_progres',$data);
 		$this->view('templates/footer');
-    }
+	}
+	
+	public function hapusProgres($id, $id_project) {
+		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_progres_project', $id_table = 'id_progres_project') > 0) {
+			Flasher::setFlash('Berhasil','dihapus','CssHapus');
+			header('Location: ' . BASEURL . '/ProgresProject/updateProject/'. $id_project .'');
+			exit;
+		} else {
+			Flasher::setFlash('Gagal','ditambahkan','CssHapus');
+			header('Location: ' . BASEURL . '/ProgresProject/updateProject/'. $id_project .'');
+			exit;
+		}
+	}
 	
 	
 

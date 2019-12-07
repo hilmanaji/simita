@@ -60,7 +60,6 @@ class User extends Controller {
 		$this->view('user/v_ubah_user', $data);
 		$this->view('templates/footer');
 	}
-
 	
 	public function ubahData() {
 		if( $this->model('DataHandle')->ubahDataUser ($_POST) > 0) {

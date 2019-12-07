@@ -4,8 +4,7 @@ class Sto extends Controller {
 	public function __construct(){
 		Flasher::startSession();	
 	}
-	
-    
+	    
     public function index () {
         $data['judul'] = 'STO';
 		$data['sub_judul'] = 'Daftar STO';
@@ -63,7 +62,6 @@ class Sto extends Controller {
 		$this->view('templates/footer');
 	}
 
-	
 	public function ubahData() {
 		if( $this->model('DataHandle')->ubahDataSto ($_POST) > 0) {
 			Flasher::setFlash('Berhasil','diubah','CssUpdate');
