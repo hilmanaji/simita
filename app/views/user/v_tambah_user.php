@@ -47,8 +47,8 @@
                 <label for="role_user">
                     <span>TIPE USER</span>
                     <select name="role_user" class="select-field">
-                        <option value="Admin Project">Procurement</option>
-                        <option value="Procurement">Admin Project</option>
+                        <option value="Procurement">Procurement</option>
+                        <option value="Admin Project">Admin Project</option>
                         <option value="Manajer Konstruksi">Manajer Konstruksi</option>
                         <option value="Admin Mitra">Admin Mitra</option>
                         <option value="Direktur Mitra">Direktur Mitra</option>
