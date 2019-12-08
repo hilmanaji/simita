@@ -83,7 +83,7 @@ class Project extends Controller {
 
 	public function ubahData() {
 		if( $this->model('DataHandle')->ubahDataProject ($_POST) > 0) {
-			Flasher::setFlash('Berhasil','diubah','CssUpdate');
+		 	Flasher::setFlash('Berhasil','diubah','CssUpdate');
 			header('Location: ' . BASEURL . '/project/index');
 			exit;
 		} else {

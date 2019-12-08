@@ -132,9 +132,14 @@ class DataHandle {
         $this->db->query('SELECT
         tbl_lop.id_project,
         tbl_po.no_po,
+        tbl_lop.id_po,
+        tbl_lop.id_regional,
         tbl_regional.regional,
+        tbl_lop.id_witel,
         tbl_witel.witel,
+        tbl_lop.id_datel,
         tbl_datel.datel,
+        tbl_lop.id_sto,
         tbl_sto.kode_sto,
         tbl_lop.nama_lokasi,
         tbl_lop.jumlah_odp,
@@ -542,11 +547,12 @@ class DataHandle {
         return $this->db->resultSet();
     }
 
-    // Query Get Data Progres
+    // Query Get Data Progres Project
     public function getDataProgresByIdp ($id) {
         $this->db->query('SELECT
         tbl_progres_project.id_progres_project,
         tbl_progres_project.id_project,
+        tbl_progres_project.id_kegiatan,
         tbl_status_project.kegiatan,
         tbl_progres_project.tgl_mulai,
         tbl_progres_project.tgl_selesai,
@@ -558,6 +564,24 @@ class DataHandle {
 
         $this->db->bind('id', $id);
         return $this->db->single();
+    }
+
+    public function ubahDataProgresProject ($data) {
+        $query = "UPDATE tbl_progres_project SET id_project = :id_project, id_kegiatan = :id_kegiatan, tgl_mulai = :tgl_mulai, tgl_selesai = :tgl_selesai, keterangan = :keterangan, evidence = :evidence WHERE id_progres_project = :id_progres_project";
+
+        $this->db->query($query);
+        $this->db->bind('id_progres_project', $data['id_progres_project']);
+        $this->db->bind('id_project', $data['id_project']);
+        $this->db->bind('id_kegiatan', $data['id_kegiatan']);
+        $this->db->bind('tgl_mulai', $data['tgl_mulai']);
+        $this->db->bind('tgl_selesai', $data['tgl_selesai']);
+        $this->db->bind('keterangan', $data['keterangan']);
+        $this->db->bind('evidence', $data['evidence']);
+        
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 
     //Query Tambah data progress
@@ -578,7 +602,7 @@ class DataHandle {
         return $this->db->rowCount();
     }
 
-    // Query Get Data Progres Tagihan
+    // Query Get Data Progres Tagihan banyak
     public function getDataTagihanById ($id) {
         
         $this->db->query('SELECT
@@ -595,6 +619,25 @@ class DataHandle {
 
         $this->db->bind('id', $id);
         return $this->db->resultSet();
+    }
+
+    // Query Get Data Progres Tagihan single
+    public function getDataProgresTagihanById ($id) {
+        $this->db->query('SELECT
+        tbl_progres_po.id_progres,
+        tbl_progres_po.id_po,
+        tbl_progres_po.id_status_po,
+        tbl_status_po.status_po,
+        tbl_progres_po.tgl_mulai,
+        tbl_progres_po.tgl_selesai,
+        tbl_progres_po.keterangan,
+        tbl_progres_po.evidence
+        FROM
+        tbl_progres_po
+        INNER JOIN tbl_status_po ON tbl_progres_po.id_status_po = tbl_status_po.id_status_po AND tbl_progres_po.id_progres = :id ');
+
+        $this->db->bind('id', $id);
+        return $this->db->single();  
     }
 
 

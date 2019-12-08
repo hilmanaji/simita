@@ -56,7 +56,7 @@ class ProgresTagihan extends Controller {
 		$file_tmp = $_FILES['evidence']['tmp_name'];
 		if (in_array($ekstensi, $ekstensi_benar) === true){
 			if ($ukuran < 1044070){
-
+				$nama = md5($nama);
 				move_uploaded_file($file_tmp, 'file/'.$nama);
 
 				$data = array(
@@ -91,16 +91,16 @@ class ProgresTagihan extends Controller {
 	}
 
 	public function ubahProgres ($id) {
-        $data['judul'] = 'Progres Project';
+        $data['judul'] = 'Progres Tagihan';
 		$data['sub_judul'] = 'Ubah Detail Progres';
 		
-        $data['data_progres'] = $this->model('DataHandle')->getDataProgresById ($id);
-        $data['data_status'] = $this->model('DataHandle')->getAll($table = 'tbl_status_project');
+        $data['data_progres'] = $this->model('DataHandle')->getDataProgresTagihanById ($id);
+        $data['data_status'] = $this->model('DataHandle')->getAll($table = 'tbl_status_po');
 
 
         $this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
-		$this->view('progres_project/v_ubah_progres',$data);
+		$this->view('progres_tagihan/v_ubah_progres',$data);
 		$this->view('templates/footer');
 	}
 	

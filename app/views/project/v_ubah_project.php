@@ -12,7 +12,7 @@
             <div class="grid-form">
                 <label for="id_project">
                     <span>ID PROJECT<span class="required">*</span></span>
-                    <input style="width: 40%" type="text" class="input-text" name="id_project" value="<?= $data['data_project']['id_project'] ?>" disabled/>
+                    <input style="width: 40%" type="text" class="input-text" name="id_project" value="<?= $data['data_project']['id_project'] ?>" />
                 </label>
                 <label for="id_po">
                     <span>NO PO</span>

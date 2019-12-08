@@ -26,7 +26,7 @@
             </tr>
             </thead>
             <tbody>
-                <form action="<?= BASEURL; ?>/ProgresProject/updateProgres/" method="post" enctype="multipart/form-data">
+                <form action="<?= BASEURL; ?>/ProgresProject/updateProgres/<?= $data['data_progres']['id_project'] ?>" method="post" enctype="multipart/form-data">
                 <td>
                     <div class="gaya-form">
                         <label for="id_kegiatan">
@@ -37,6 +37,7 @@
                                 <?php endforeach; ?>
                             </select>
                         </label>
+                        <input type="hidden" name="id_progres_project" value="<?= $data['data_progres']['id_progres_project'] ?>" >
                         <input type="hidden" name="id_project" value="<?= $data['data_progres']['id_project'] ?>" >
                     </div> 
                 </td>
@@ -57,15 +58,15 @@
                 <td>
                     <div class="gaya-form">
                         <label for="keterangan">
-                            <textarea name="keterangan" class="textarea-field" style="width: 100%" value="<?= $data['data_progres']['keterangan'] ?>" required></textarea>
-                            <!-- <input style="width: 100%" type="text-area" class="input-text" name="keterangan" value="" required/> -->
+                            <!-- <textarea name="keterangan" class="textarea-field" style="width: 100%" value="<?= $data['data_progres']['keterangan'] ?>" required></textarea> -->
+                            <input style="width: 100%" type="text-area" class="input-text" name="keterangan" value="<?= $data['data_progres']['keterangan'] ?>" required/>
                         </label>
                     </div>
                 </td>
                 <td>
                     <div class="gaya-form">
                         <label for="evidence">
-                             <input type="file" style="width: 100%" class="input-text" name="evidence" required/>
+                             <input type="file" style="width: 100%" class="input-text" name="evidence" value="<?= $data['data_progres']['evidence'] ?>" required/>
                         </label>
                     </div>
                 </td>
