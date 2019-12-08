@@ -1,13 +1,13 @@
-<script>
-function sum() {
-      var odp = document.getElementById('jumlah_odp').value;
+<script type="text/javascript">
+    function sum() {
+        var odp = document.getElementById('jumlah_odp').value;
 
-      
-      var port = parseInt(odp) * 8;
-      if (!isNaN(port)) {
-         document.getElementById('txt3').value = port;
-      }
-}
+        
+        var port = parseInt(odp) * 8;
+        if (!isNaN(port)) {
+            document.getElementById('txt3').value = port;
+        }
+    }
 </script>
 <div class="judul">
     <h4>Home / <a href="<?= BASEURL; ?>/project/index"><?= $data['judul'] ?></a></h4>
@@ -80,11 +80,11 @@ function sum() {
                 </label>
                 <label for="odp">
                     <span>ODP<span class="required">*</span></span>
-                    <input style="width: 60px" type="number" class="input-text" name="jumlah_odp" value=""/>
+                    <input style="width: 60px" type="number" class="input-text" name="jumlah_odp" id="jumlah_odp" value="" onKeyPress="sum();"/>
                 </label>
                 <label for="port">
                     <span>PORT<span class="required">*</span></span>
-                    <input style="width: 60px" type="number" class="input-text" name="jumlah_port" value=""/>
+                    <input style="width: 60px" type="number" class="input-text" name="jumlah_port" id="jumlah_port" value=""/>
                 </label>
                 <label for="toc">
                     <span>TOC<span class="required">*</span></span>
