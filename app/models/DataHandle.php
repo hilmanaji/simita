@@ -640,6 +640,24 @@ class DataHandle {
         return $this->db->single();  
     }
 
+    public function ubahDataProgresPo($data) {
+        $query = "UPDATE tbl_progres_po SET id_po = :id_po, id_status_po = :id_status_po, tgl_mulai = :tgl_mulai, tgl_selesai = :tgl_selesai, keterangan = :keterangan, evidence = :evidence WHERE id_progres = :id_progres";
+
+        $this->db->query($query);
+        $this->db->bind('id_progres', $data['id_progres']);
+        $this->db->bind('id_po', $data['id_po']);
+        $this->db->bind('id_status_po', $data['id_status_po']);
+        $this->db->bind('tgl_mulai', $data['tgl_mulai']);
+        $this->db->bind('tgl_selesai', $data['tgl_selesai']);
+        $this->db->bind('keterangan', $data['keterangan']);
+        $this->db->bind('evidence', $data['evidence']);
+        
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
 
     
 

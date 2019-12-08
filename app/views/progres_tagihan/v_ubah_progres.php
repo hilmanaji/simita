@@ -37,7 +37,7 @@
                                 <?php endforeach; ?>
                             </select>
                         </label>
-                        <input type="hidden" name="id_progres_po" value="<?= $data['data_progres']['id_progres_po'] ?>" >
+                        <input type="hidden" name="id_progres" value="<?= $data['data_progres']['id_progres'] ?>" >
                         <input type="hidden" name="id_po" value="<?= $data['data_progres']['id_po'] ?>" >
                     </div> 
                 </td>

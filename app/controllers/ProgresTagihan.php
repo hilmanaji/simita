@@ -81,11 +81,15 @@ class ProgresTagihan extends Controller {
 					
 			}
 			else{
-				echo 'UKURAN FILE TERLALU BESAR';
+				Flasher::setFlash('Ukuran File','Terlalu Besar','CssTambah');
+				header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
+				exit;
 			}
 		}
 		else {
-			echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+			Flasher::setFlash('Format File','Tidak diijinkan','CssTambah');
+			header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
+			exit;
 		}
 		
 	}
@@ -107,11 +111,66 @@ class ProgresTagihan extends Controller {
 	public function hapusProgres($id, $id_po) {
 		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_progres_po', $id_table = 'id_progres') > 0) {
 			Flasher::setFlash('Berhasil','dihapus','CssHapus');
-			header('Location: ' . BASEURL . '/ProgresTagihan/updateProject/'. $id_po .'');
+			header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
 			exit;
 		} else {
 			Flasher::setFlash('Gagal','ditambahkan','CssHapus');
-			header('Location: ' . BASEURL . '/ProgresTagihan/updateProject/'. $id_po .'');
+			header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
+			exit;
+		}
+	}
+
+	public function updateProgres ($id_po) {
+		$id_progres = $_POST['id_progres'];
+		$id_status_po = $_POST['id_status_po'];
+		$id_po = $_POST['id_po'];
+		$tgl_mulai = $_POST['tgl_mulai'];
+		$tgl_selesai = $_POST['tgl_selesai'];
+		$keterangan = $_POST['keterangan'];
+		
+		$ekstensi_benar	= array('pdf','jpg');
+		$nama = $_FILES['evidence']['name'];
+		$x = explode('.', $nama);
+		$ekstensi = strtolower(end($x));
+		$ukuran	= $_FILES['evidence']['size'];
+		$file_tmp = $_FILES['evidence']['tmp_name'];
+		if (in_array($ekstensi, $ekstensi_benar) === true){
+			if ($ukuran < 1044070){
+				$nama = md5($nama);
+				move_uploaded_file($file_tmp, 'files/'.$nama);
+
+				$data = array(
+					'id_progres' => $id_progres,
+					'id_status_po' => $id_status_po,
+					'id_po' => $id_po,
+					'tgl_mulai' => $tgl_mulai,
+					'tgl_selesai' => $tgl_selesai,
+					'keterangan' => $keterangan,
+					'evidence' => $nama
+				 );
+				 //var_dump($data);
+
+				if ( $this->model('DataHandle')->ubahDataProgresPo($data) > 0) {
+				 	Flasher::setFlash('Berhasil','Diperbaharui','CssTambah');
+				 	header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
+					exit;
+				} else {
+				 	Flasher::setFlash('gagal','Diperbaharui','CssTambah');
+				 	header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
+				 	exit;
+				}
+
+					
+			}
+			else{
+				Flasher::setFlash('Ukuran File','Terlalu Besar','CssTambah');
+				header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
+				exit;
+			}
+		}
+		else {
+			Flasher::setFlash('Format File','Tidak diijinkan','CssTambah');
+			header('Location: ' . BASEURL . '/ProgresTagihan/updateTagihan/'. $id_po .'');
 			exit;
 		}
 	}
