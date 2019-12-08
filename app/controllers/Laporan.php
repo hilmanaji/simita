@@ -1,5 +1,5 @@
 <?php
-class Mitra extends Controller {
+class Laporan extends Controller {
     public function index() {
         echo "Laporan";
     }

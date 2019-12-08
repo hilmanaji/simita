@@ -72,8 +72,8 @@
                 <td><?= $prg['keterangan'] ?></td>
                 <td><a href="<?= BASEURL; ?>/files/<?= $prg['evidence'] ?>"><?= $prg['evidence'] ?></a></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/ProgresProject/ubahProgres/<?= $prg['id_progres_project'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
-                    <a href="<?= BASEURL; ?>/ProgresProject/hapusProgres/<?= $prg['id_progres_project'] ?>/<?= $prg['id_project'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                    <a href="<?= BASEURL; ?>/ProgresTagihan/ubahProgres/<?= $prg['id_progres'] ?>"><img src="<?= BASEURL; ?>/img/edit.png" alt=""  width="19" heigth="19"></a>
+                    <a href="<?= BASEURL; ?>/ProgresTagihan/hapusProgres/<?= $prg['id_progres'] ?>/<?= $prg['id_po'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -31,7 +31,7 @@
                 </label>
                 <label for="id_sto">
                     <span>STO</span>
-                    <input style="width: 40%" type="text" class="input-text" name="id_sto" value="<?= $data['data_project']['nama_sto'] ?>" disabled/>
+                    <input style="width: 40%" type="text" class="input-text" name="id_sto" value="<?= $data['data_project']['kode_sto'] ?>" disabled/>
                 </label>
             </div>
             <div class="grid-form">

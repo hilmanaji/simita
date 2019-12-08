@@ -41,7 +41,8 @@ class ProgresTagihan extends Controller {
     }
 
     public function tambahProgres () {
-		$id_kegiatan = $_POST['id_posisi_po'];
+		
+		$id_status_po = $_POST['id_status_po'];
 		$id_po = $_POST['id_po'];
 		$tgl_mulai = $_POST['tgl_mulai'];
 		$tgl_selesai = $_POST['tgl_selesai'];
@@ -59,7 +60,7 @@ class ProgresTagihan extends Controller {
 				move_uploaded_file($file_tmp, 'file/'.$nama);
 
 				$data = array(
-					'id_kegiatan' => $id_kegiatan,
+					'id_status_po' => $id_status_po,
 					'id_po' => $id_po,
 					'tgl_mulai' => $tgl_mulai,
 					'tgl_selesai' => $tgl_selesai,
@@ -101,5 +102,19 @@ class ProgresTagihan extends Controller {
 		$this->view('templates/sidebar', $data);
 		$this->view('progres_project/v_ubah_progres',$data);
 		$this->view('templates/footer');
-    }
+	}
+	
+	public function hapusProgres($id, $id_po) {
+		if( $this->model('DataHandle')->hapusData($id, $table = 'tbl_progres_po', $id_table = 'id_progres') > 0) {
+			Flasher::setFlash('Berhasil','dihapus','CssHapus');
+			header('Location: ' . BASEURL . '/ProgresTagihan/updateProject/'. $id_po .'');
+			exit;
+		} else {
+			Flasher::setFlash('Gagal','ditambahkan','CssHapus');
+			header('Location: ' . BASEURL . '/ProgresTagihan/updateProject/'. $id_po .'');
+			exit;
+		}
+	}
+
+
 }

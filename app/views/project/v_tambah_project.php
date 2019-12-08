@@ -1,4 +1,14 @@
+<script>
+function sum() {
+      var odp = document.getElementById('jumlah_odp').value;
 
+      
+      var port = parseInt(odp) * 8;
+      if (!isNaN(port)) {
+         document.getElementById('txt3').value = port;
+      }
+}
+</script>
 <div class="judul">
     <h4>Home / <a href="<?= BASEURL; ?>/project/index"><?= $data['judul'] ?></a></h4>
 </div>

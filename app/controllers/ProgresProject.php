@@ -113,6 +113,11 @@ class ProgresProject extends Controller {
 			exit;
 		}
 	}
+
+	public function updateProgres ($id) {
+		
+
+	}
 	
 	
 

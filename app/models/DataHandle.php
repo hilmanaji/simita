@@ -562,11 +562,11 @@ class DataHandle {
 
     //Query Tambah data progress
     public function tambahDataProgresTagihan ($data) {
-        $query = "INSERT INTO tbl_progres_po VALUES ('', :id_po, :id_posisi_po, :tgl_mulai, :tgl_selesai, :keterangan, :evidence)";
+        $query = "INSERT INTO tbl_progres_po VALUES ('', :id_po, :id_status_po, :tgl_mulai, :tgl_selesai, :keterangan, :evidence)";
 
         $this->db->query($query);
         $this->db->bind('id_po', $data['id_po']);
-        $this->db->bind('id_posisi_po', $data['id_posisi_po']);
+        $this->db->bind('id_status_po', $data['id_status_po']);
         $this->db->bind('tgl_mulai', $data['tgl_mulai']);
         $this->db->bind('tgl_selesai', $data['tgl_selesai']);
         $this->db->bind('keterangan', $data['keterangan']);
@@ -580,6 +580,7 @@ class DataHandle {
 
     // Query Get Data Progres Tagihan
     public function getDataTagihanById ($id) {
+        
         $this->db->query('SELECT
         tbl_progres_po.id_progres,
         tbl_progres_po.id_po,
@@ -590,7 +591,7 @@ class DataHandle {
         tbl_progres_po.evidence
         FROM
         tbl_progres_po
-        INNER JOIN tbl_status_po ON tbl_progres_po.id_status_po = tbl_status_po.id_status_po AND tbl_progres_po.id_progres = :id ');
+        INNER JOIN tbl_status_po ON tbl_progres_po.id_status_po = tbl_status_po.id_status_po AND tbl_progres_po.id_po = :id ');
 
         $this->db->bind('id', $id);
         return $this->db->resultSet();

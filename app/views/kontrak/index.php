@@ -35,8 +35,14 @@
                 <td><?= $kontrak['no_kontrak'] ?></td>
                 <td><?= $kontrak['jenis_kontrak'] ?></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/kontrak/getUbah/<?= $kontrak['id_kontrak'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
-                    <a href="<?= BASEURL; ?>/kontrak/hapus/<?= $kontrak['id_kontrak'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                    <?php if ($_SESSION["role_user"] == 'Admin Project') { ?>
+                        <a href="<?= BASEURL; ?>/kontrak/getUbah/<?= $kontrak['id_kontrak'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
+                        <a href="<?= BASEURL; ?>/kontrak/hapus/<?= $kontrak['id_kontrak'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                    <?php
+                    } else {
+                        echo "";
+                    } ?>
+                    
                 </td>
             </tr>
             <?php endforeach; ?>

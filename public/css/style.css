@@ -282,7 +282,7 @@ td a:hover {
 div .CssTambah {
     width: 30%;
     background-color: #16e48e;
-    color: #FFFFFF;
+    color: rgb(0, 0, 0);
     padding: 10px 15px 10px 10px;
     border-radius: 4px;
     margin-left: 10px;
