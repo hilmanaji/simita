@@ -21,20 +21,16 @@
                     <span>NAMA LENGKAP<span class="required">*</span></span>
                     <input type="text" class="input-text" name="nama" value="" required/>
                 </label>
-                <label for="alamat">
-                    <span>ALAMAT<span class="required">*</span></span>
-                    <input type="text" class="input-text" name="alamat" value="" required/>
-                </label>
-                <label for="email">
-                    <span>EMAIL<span class="required">*</span></span>
-                    <input type="email" class="input-text" name="email" value="" required/>
-                </label>
                 <label for="jk">
                     <span>JENIS KELAMIN</span>
                     <select name="jk" class="select-field">
                         <option value="L">Laki - laki</option>
                         <option value="P">Perempuan</option>
                     </select>
+                </label>
+                <label for="email">
+                    <span>EMAIL<span class="required">*</span></span>
+                    <input type="email" class="input-text" name="email" value="" required/>
                 </label>
                 <label for="username">
                     <span>USERNAME<span class="required">*</span></span>

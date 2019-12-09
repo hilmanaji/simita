@@ -2,9 +2,7 @@
 
 class Mitra extends Controller {
 	public function __construct(){
-		if(!isset($_SESSION["username"]))  {  
-			header('Location: ' . BASEURL . '/login/index');  
-		}  	
+		Flasher::startSession(); 	
 	}
 	
     public function index (){

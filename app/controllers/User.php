@@ -4,10 +4,15 @@ class User extends Controller {
 	public function __construct(){
 		if(!isset($_SESSION["username"]))  {  
 			header('Location: ' . BASEURL . '/login/index');  
-		}	
+		}
+			
 	}
 
     public function index() {
+		if($_SESSION["role_user"] !== 'Admin Project') {
+			header('Location: ' . BASEURL . '/login/index');
+		}
+
         $data['judul'] = 'User';
 		$data['sub_judul'] = 'Daftar User';
 		$data['data_user'] = $this->model('DataHandle')->getAll($table = 'tbl_user');
@@ -55,6 +60,8 @@ class User extends Controller {
 		$data['judul'] = 'Ubah Data User';
 		$data['sub_judul'] = 'Ubah Data User';
 		$data['data_user'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_user',$id_table = 'id_user', $id);
+
+		$data['data_mitra'] = $this->model('DataHandle')->getAll($table = 'tbl_mitra');
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
 		$this->view('user/v_ubah_user', $data);
@@ -62,14 +69,16 @@ class User extends Controller {
 	}
 	
 	public function ubahData() {
+		//var_dump($_POST);
+
 		if( $this->model('DataHandle')->ubahDataUser ($_POST) > 0) {
-			Flasher::setFlash('Berhasil','diubah','CssUpdate');
-			header('Location: ' . BASEURL . '/user/index');
-			exit;
+		 	Flasher::setFlash('Berhasil','diubah','CssUpdate');
+		 	header('Location: ' . BASEURL . '/user/index');
+		 	exit;
 		} else {
-			Flasher::setFlash('gagal','diubah','CssUpdate');
-			header('Location: ' . BASEURL . '/user/index');
-			exit;
+		 	Flasher::setFlash('gagal','diubah','CssUpdate');
+		 	header('Location: ' . BASEURL . '/user/index');
+		 	exit;
 		}
 	}   
 
@@ -81,5 +90,19 @@ class User extends Controller {
 		$this->view('templates/sidebar', $data);
 		$this->view('user/v_ubah_profile', $data);
 		$this->view('templates/footer');
-	}   
+	}
+	
+	public function ubahDataProfile() {
+		//var_dump($_POST);
+
+		if( $this->model('DataHandle')->ubahDataUser ($_POST) > 0) {
+		 	Flasher::setFlash('Berhasil','diubah','CssUpdate');
+		 	header('Location: ' . BASEURL . '/user/index');
+		 	exit;
+		} else {
+		 	Flasher::setFlash('gagal','diubah','CssUpdate');
+		 	header('Location: ' . BASEURL . '/user/index');
+		 	exit;
+		}
+	}
 }

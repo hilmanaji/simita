@@ -38,7 +38,13 @@
             <?php foreach ( $data['data_user'] as $user ) : ?>
             <tr>
                 <td><?= $no++; ?></td>
-                <td><?= $user['id_mitra'] ?></td>
+                <td>
+                    <?php 
+                        $id_mitra = $user['id_mitra'];
+                        $data['mitra'] = $this->model('DataHandle')->getAllWhere($table = 'tbl_mitra',$id_table = 'id_mitra', $id_mitra);
+                        ?>
+                    <?= $data['mitra']['nama_perusahaan'] ?>
+                </td>
                 <td><?= $user['nama'] ?></td>
                 <td><?= $user['jk'] ?></td>
                 <td><?= $user['username'] ?></td>

@@ -20,6 +20,8 @@ class Po extends Controller {
 	public function tambahData() {
 		$data['judul'] = 'Purchase Order';
 		$data['sub_judul'] = 'Tambah PO';
+		$data['data_mitra'] = $this->model('DataHandle')->getAll($table = 'tbl_mitra');
+		
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
 		$this->view('po/v_tambah_po',$data);
