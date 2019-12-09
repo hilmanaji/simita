@@ -69,7 +69,7 @@
             box-sizing: border-box;
         }
         body {
-        background:#d95757;
+        background:#c7ecee;
         }
 
         * {

@@ -54,8 +54,13 @@
                 <td><?= $po['total'] ?></td>
                 <td><?= $po['status_po'] ?></td>
                 <td>
-                    <a href="<?= BASEURL; ?>/po/getUbah/<?= $po['id_po'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
-                    <a href="<?= BASEURL; ?>/po/hapus/<?= $po['id_po'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                    <?php if ($_SESSION["role_user"] == 'Admin Project') { ?>
+                        <a href="<?= BASEURL; ?>/po/getUbah/<?= $po['id_po'] ?>"><img src="<?= BASEURL; ?>/img/b-edit.png" alt=""  width="19" heigth="19"></a>
+                        <a href="<?= BASEURL; ?>/po/hapus/<?= $po['id_po'] ?>" onClick="return confirm('Anda Yakin Akan Menghapus ?')"><img src="<?= BASEURL; ?>/img/b-hapus.png" alt=""  width="15" heigth="15"></a>
+                    <?php
+                    } else {
+                        echo "";
+                    } ?>
                 </td>
             </tr>
             <?php endforeach; ?>
