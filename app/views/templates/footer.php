@@ -4,6 +4,24 @@
 </footer>
 <script>
 
+function sumodp() {
+      var txtFirstNumberValue = document.getElementById('jumlah_odp').value;
+      var txtSecondNumberValue = 8;
+      var result = parseInt(txtFirstNumberValue) * parseInt(txtSecondNumberValue);
+      if (!isNaN(result)) {
+         document.getElementById('jumlah_port').value = result;
+      }
+}
+
+function sum() {
+      var txtFirstNumberValue = document.getElementById('nilai_material').value;
+      var txtSecondNumberValue = document.getElementById('nilai_jasa').value;
+      var result = parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue);
+      if (!isNaN(result)) {
+         document.getElementById('total').value = result;
+      }
+}
+
   document.getElementById("sideMenu").style.width = "280px";
   document.getElementById("main").style.marginLeft = "280px";
   document.getElementById("content-area").style.marginLeft = "280px";

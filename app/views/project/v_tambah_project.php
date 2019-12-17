@@ -80,11 +80,11 @@
                 </label>
                 <label for="odp">
                     <span>ODP<span class="required">*</span></span>
-                    <input style="width: 60px" type="number" class="input-text" name="jumlah_odp" id="jumlah_odp" value="" onKeyPress="sum();"/>
+                    <input style="width: 60px" type="number" class="input-text" name="jumlah_odp" id="jumlah_odp" value="" onkeyup="sumodp();"/>
                 </label>
                 <label for="port">
                     <span>PORT<span class="required">*</span></span>
-                    <input style="width: 60px" type="number" class="input-text" name="jumlah_port" id="jumlah_port" value=""/>
+                    <input style="width: 60px" type="number" class="input-text" name="jumlah_port" id="jumlah_port" value="" readonly/>
                 </label>
                 <label for="toc">
                     <span>TOC<span class="required">*</span></span>
@@ -92,15 +92,15 @@
                 </label>
                 <label for="nilai_material">
                     <span>MATERIAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="nilai_material" value=""/>
+                    <input type="number" class="input-text" name="nilai_material" id="nilai_material" value="" onkeyup="sum();"/>
                 </label>
                 <label for="nilai_jasa">
                     <span>MATERIAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="nilai_jasa" value=""/>
+                    <input type="number" class="input-text" name="nilai_jasa" id="nilai_jasa" value="" onkeyup="sum();"/>
                 </label>
                 <label for="total">
                     <span>TOTAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="total" value=""/>
+                    <input type="number" class="input-text" name="total" id="total" value="" readonly/>
                 </label>
             </div>
             <label><span> </span><input type="submit" value="SIMPAN" /></label>

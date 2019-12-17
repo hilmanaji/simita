@@ -10,8 +10,8 @@
         <form action="">
             <a href="<?= BASEURL; ?>/datel/tambahData">Tambah Data</a>
         
-            <input type="text" placeholder="Cari data" name="cari">
-            <input type="submit" value="Cari" class="tombol">
+            <!-- <input type="text" placeholder="Cari data" name="cari"> -->
+            <!-- <input type="submit" value="Cari" class="tombol"> -->
         </form>    
     </div>
     <!-- ini bagian judul -->

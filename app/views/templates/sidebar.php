@@ -10,7 +10,7 @@
         if ($_SESSION["role_user"] == 'Admin Project') { ?>
             <a href="<?= BASEURL;?>/" <?php if($halaman == "Dashboard") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/dashboard.png" alt="" width="20" heigth="20">&nbsp Dashboard</a>
             <a href="<?= BASEURL;?>/kontrak/index" <?php if($halaman == "Kontrak") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/kontrak.png" alt="" width="20" heigth="20">&nbsp Kontrak</a>
-            <a href="<?= BASEURL;?>/po/index" <?php if($halaman == "Purchase Order") echo "class='active'"; ?> ><img style="float : left;" src="<?= BASEURL;?>/img/purchase.png" alt="" width="25" heigth="25">&nbsp Purchase Order</a>
+            <a href="<?= BASEURL;?>/Po/index" <?php if($halaman == "Purchase Order") echo "class='active'"; ?> ><img style="float : left;" src="<?= BASEURL;?>/img/purchase.png" alt="" width="25" heigth="25">&nbsp Purchase Order</a>
             <a href="<?= BASEURL;?>/project/index" <?php if($halaman == "Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Project</a>
             <a href="<?= BASEURL;?>/progresproject/index" <?php if($halaman == "Progres Project") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/progress.png" alt="" width="20" heigth="20">&nbsp Progres Project</a>
             <a href="<?= BASEURL;?>/progrestagihan/index" <?php if($halaman == "Progres Tagihan") echo "class='active'"; ?>><img style="float : left;" src="<?= BASEURL;?>/img/tagihan.png" alt="" width="20" heigth="20">&nbsp Progres Tagihan</a>

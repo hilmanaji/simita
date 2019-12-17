@@ -33,15 +33,15 @@
                 </label>
                 <label for="nilai_material">
                     <span>MATERIAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="nilai_material" value="<?= $data['data_po']['nilai_material'] ?>"/>
+                    <input type="number" class="input-text" name="nilai_material" value="<?= $data['data_po']['nilai_material'] ?>" id="nilai_material" onkeyup="sum();"/>
                 </label>
                 <label for="nilai_jasa">
                     <span>JASA <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="nilai_jasa" value="<?= $data['data_po']['nilai_jasa'] ?>"/>
+                    <input type="number" class="input-text" name="nilai_jasa" value="<?= $data['data_po']['nilai_jasa'] ?>" id="nilai_jasa" onkeyup="sum();"/>
                 </label>
                 <label for="total">
                     <span>TOTAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="total" value="<?= $data['data_po']['total'] ?>"/>
+                    <input type="number" class="input-text" name="total" value="<?= $data['data_po']['total'] ?>" id="total" readonly/>
                 </label>
                 <label for="status_po"><span>STATUS PO <span class="required">*</span></span><textarea name="status_po" class="textarea-field"></textarea></label>
 

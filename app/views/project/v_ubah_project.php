@@ -76,11 +76,11 @@
                 </label>
                 <label for="odp">
                     <span>ODP<span class="required">*</span></span>
-                    <input style="width: 60px" type="number" class="input-text" name="jumlah_odp" value="<?= $data['data_project']['jumlah_odp'] ?>"/>
+                    <input style="width: 60px" type="number" class="input-text" name="jumlah_odp" id="jumlah_odp" value="<?= $data['data_project']['jumlah_odp'] ?>" onkeyup="sumodp();"/>
                 </label>
                 <label for="port">
                     <span>PORT<span class="required">*</span></span>
-                    <input style="width: 60px" type="number" class="input-text" name="jumlah_port" value="<?= $data['data_project']['jumlah_port'] ?>"/>
+                    <input style="width: 60px" type="number" class="input-text" name="jumlah_port" id="jumlah_port" value="<?= $data['data_project']['jumlah_port'] ?>" readonly/>
                 </label>
                 <label for="toc">
                     <span>TOC<span class="required">*</span></span>
@@ -88,15 +88,15 @@
                 </label>
                 <label for="nilai_material">
                     <span>MATERIAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="nilai_material" value="<?= $data['data_project']['nilai_material'] ?>"/>
+                    <input type="number" class="input-text" name="nilai_material" id="nilai_material" onkeyup="sum();" value="<?= $data['data_project']['nilai_material'] ?>"/>
                 </label>
                 <label for="nilai_jasa">
                     <span>MATERIAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="nilai_jasa" value="<?= $data['data_project']['nilai_jasa'] ?>"/>
+                    <input type="number" class="input-text" name="nilai_jasa" id="nilai_jasa" onkeyup="sum();" value="<?= $data['data_project']['nilai_jasa'] ?>"/>
                 </label>
                 <label for="total">
                     <span>TOTAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="total" value="<?= $data['data_project']['total'] ?>"/>
+                    <input type="number" class="input-text" name="total" id="total" value="<?= $data['data_project']['total'] ?>" readonly/>
                 </label>
                 <input type="hidden" class="input-text" name="status_progress" value="<?= $data['data_project']['status_progress'] ?>" required/>
             </div>

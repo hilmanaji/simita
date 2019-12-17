@@ -84,6 +84,15 @@ page[size="A5"][layout="landscape"] {
             <?php endforeach; ?>
             <tbody>
         </table>
+        <br>
+        <br>
+        <br>
+        <p>Site Manajer Project Deployment</p>
+        <br>
+        <br>
+        <br>
+        <p>SUKRIS</p>
+        <p>NIK.88147426 </p>
     </div>
     </div>
     </page>

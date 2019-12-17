@@ -31,15 +31,15 @@
                 </label>
                 <label for="nilai_material">
                     <span>MATERIAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="nilai_material" value=""/>
+                    <input type="number" class="input-text" name="nilai_material" id="nilai_material" value="" onkeyup="sum();"/>
                 </label>
                 <label for="nilai_jasa">
                     <span>JASA <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="nilai_jasa" value=""/>
+                    <input type="number" class="input-text" name="nilai_jasa" id="nilai_jasa" value="" onkeyup="sum();"/>
                 </label>
                 <label for="total">
                     <span>TOTAL <span class="required">*</span></span>
-                    <input type="number" class="input-text" name="total" value=""/>
+                    <input type="number" class="input-text" name="total" id="total" value="" readonly/>
                 </label>
                 <label for="id_mitra">
                     <span>MITRA</span>
